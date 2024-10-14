@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectTasksOptions">
+    <enabled-global>
+      <option value="Prettier Watcher JS" />
+      <option value="Prettier Watcher TS" />
+      <option value="Prettier Watcher TSX" />
+    </enabled-global>
+  </component>
+</project>

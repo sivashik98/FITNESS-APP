@@ -1,0 +1,40 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "paths": {
+      "lottie/*": ["./assets/lottie/*"],
+      "svg/*": ["./assets/svg/*"],
+      "jpg/*": ["./assets/jpg/*"],
+      "png/*": ["./assets/png/*"],
+      //
+      "app/*": ["./src/app/*"],
+      "bl-modules/*": ["./src/bl-modules/*"],
+      "configs/*": ["./src/configs/*"],
+      "tools/*": ["./src/tools/*"],
+      "ui/*": ["./src/ui/*"],
+      //
+      "components/*": ["./src/ui/components/*"],
+      "navigation/*": ["./src/ui/navigation/*"],
+      "screens/*": ["./src/ui/screens/*"],
+      "widgets/*": ["./src/ui/widgets/*"]
+    },
+    "plugins": [{"name": "typescript-eslint-language-service"}],
+    "jsx": "react-native",
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "strict": true,
+    // exactOptionalPropertyTypes: true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    // noPropertyAccessFromIndexSignature: true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedSideEffectImports": true,
+    "noEmit": false,
+    "removeComments": true,
+    "allowJs": true,
+    "checkJs": true,
+    "pretty": true,
+  },
+}
