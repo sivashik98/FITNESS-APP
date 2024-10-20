@@ -3,16 +3,14 @@ import { Pressable, ActivityIndicator } from 'react-native';
 import { useStyles, createStyleSheet } from 'react-native-unistyles';
 import { Shadow } from 'react-native-shadow-2';
 
-import { UIText, UIView } from 'components/ui-kit';
+import { UIText, UIView } from 'ui/components/ui-kit';
 
 import { UIButtonProps } from './types';
-import { SHADOW_CONFIG } from 'components/ui-kit/ui-button/config';
+import { SHADOW_CONFIG } from 'ui/components/ui-kit/ui-button/config';
 import { APP_COLORS } from 'app/theme';
 
 export const UIButton: FC<UIButtonProps> = memo(({ type, loading, disabled, title, LeftIcon, onPress, ...props }) => {
   const { styles, theme } = useStyles(stylesheet);
-
-  // console.log('render UIButton');
 
   return (
     <Shadow

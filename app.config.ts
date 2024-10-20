@@ -16,7 +16,7 @@ const config: ExpoConfig = {
   splash: {
     image: './assets/splash.png',
     resizeMode: 'cover',
-    backgroundColor: '#9C73F8',
+    backgroundColor: '#9F4DF1',
   },
   ios: {
     bundleIdentifier: 'com.sivashik98.yuteam',

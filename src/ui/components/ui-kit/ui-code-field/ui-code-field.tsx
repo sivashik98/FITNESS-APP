@@ -3,10 +3,11 @@ import { Platform } from 'react-native';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 import { CodeField, Cursor, useClearByFocusCell } from 'react-native-confirmation-code-field';
 
-import { UIText, UIView } from 'components/ui-kit';
+import { UIText, UIView } from 'ui/components/ui-kit';
 
-import { UICodeFieldProps } from 'components/ui-kit/ui-code-field/types';
+import { UICodeFieldProps } from 'ui/components/ui-kit/ui-code-field/types';
 import { RenderCellOptions } from 'react-native-confirmation-code-field/esm/CodeField';
+import { TextTypes } from 'ui/components/ui-kit/ui-text/types';
 
 const renderCell =
   (onLayout: ReturnType<typeof useClearByFocusCell>[1]) =>
@@ -14,8 +15,8 @@ const renderCell =
     const { styles } = useStyles(stylesheet);
     return (
       <UIView key={index} onLayout={onLayout(index)} style={[styles.cell, isFocused && styles['cell-focused']]}>
-        <UIText h2>{symbol || (isFocused ? <Cursor cursorSymbol={'✍🏽'} /> : null)}</UIText>
-        {/*<UIText h2>{symbol}</UIText>*/}
+        {/*<UIText h2>{symbol || (isFocused ? <Cursor cursorSymbol={'✍🏽'} /> : null)}</UIText>*/}
+        <UIText h2>{symbol}</UIText>
       </UIView>
     );
   };
@@ -43,12 +44,12 @@ export const UICodeField = forwardRef<any, UICodeFieldProps>(({ value, onChangeT
         caretHidden={false}
       />
       {errorMessage ? (
-        <UIText p1R type={'error'}>
+        <UIText p2R type={TextTypes.error}>
           {errorMessage}
         </UIText>
       ) : undefined}
       {bottomHint ? (
-        <UIText p1R type={'secondary'}>
+        <UIText p2R type={TextTypes.secondary}>
           {bottomHint}
         </UIText>
       ) : undefined}

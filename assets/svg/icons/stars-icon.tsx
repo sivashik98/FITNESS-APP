@@ -2,10 +2,10 @@ import * as React from 'react';
 import Svg, { Path } from 'react-native-svg';
 import { FC } from 'react';
 
-import { IIconProps } from 'app/types';
 import { APP_COLORS } from 'app/theme/colors';
+import { SvgProps } from 'svg/types';
 
-export const StarsIconSvg: FC<IIconProps> = ({ size = 18, color = APP_COLORS.white, ...props }) => {
+export const StarsIconSvg: FC<SvgProps> = ({ size = 18, color = APP_COLORS.white, ...props }) => {
   return (
     <Svg width={size} height={size} viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <Path

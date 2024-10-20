@@ -1,8 +1,10 @@
-import { UIView } from 'components/ui-kit';
+import { FC } from 'react';
 import { FadeInDown, FadeOutDown } from 'react-native-reanimated';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
-import { FC } from 'react';
-import { FooterProps } from 'components/footer/types';
+
+import { UIView } from 'ui/components/ui-kit';
+
+import { FooterProps } from 'ui/components/footer/types';
 
 export const Footer: FC<FooterProps> = ({ children }) => {
   const { styles } = useStyles(stylesheet);

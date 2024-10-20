@@ -1,13 +1,15 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Alert } from 'react-native';
 import { Image } from 'expo-image';
 
-import { UIButton, UIText, UIView } from 'components/ui-kit';
+import { UIButton, UIText, UIView } from 'ui/components/ui-kit';
 import { Screen, Footer, SvgWrap } from 'ui/components';
 import { LogoSvg } from 'svg/logo';
 import { StarsIconSvg } from 'svg/icons/stars-icon';
 
-import { SCREEN_HEIGHT } from 'app/constants';
 import { NavigationService } from 'tools/services/navigation/navigation';
+import { DimensionsService } from 'tools/services';
+import { ButtonTypes } from 'ui/components/ui-kit/ui-button/types';
+import { TextTypes } from 'ui/components/ui-kit/ui-text/types';
 
 export const WelcomeScreen = () => {
   return (
@@ -24,9 +26,17 @@ export const WelcomeScreen = () => {
           <Footer>
             <UIView gap-24>
               <UIText h1>Начните свой путь к здоровому образу жизни с нами</UIText>
-              <UIButton type={'filled'} title={'Погнали!'} LeftIcon={StarsIconSvg} onPress={() => NavigationService.navigate('SignUpScreen')} />
-              <UIText center type={'secondary'}>
-                Нажимая «Погнали!», вы принимаете политику конфиденциальности
+              <UIButton
+                type={ButtonTypes.filled}
+                title={'Погнали!'}
+                LeftIcon={StarsIconSvg}
+                onPress={() => NavigationService.navigate('HybridAuthScreen')}
+              />
+              <UIText p3R center type={TextTypes.secondary}>
+                Нажимая «Погнали!», вы принимаете{' '}
+                <UIText p3R center type={TextTypes.secondary} underline onPress={() => Alert.alert('Политика конфиденциальности')}>
+                  политику конфиденциальности
+                </UIText>
               </UIText>
             </UIView>
           </Footer>
@@ -41,8 +51,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     left: 0,
-    height: SCREEN_HEIGHT,
-    width: SCREEN_HEIGHT,
+    height: DimensionsService.screen.height,
+    width: DimensionsService.screen.height,
   },
   logo: {
     marginTop: 60,

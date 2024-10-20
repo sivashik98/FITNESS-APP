@@ -1,10 +1,11 @@
 import { forwardRef } from 'react';
-import { UIText, UIView } from 'components/ui-kit';
+import { UIText, UIView } from 'ui/components/ui-kit';
 import { TextField } from 'react-native-ui-lib';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
-import { UITextFieldProps } from 'components/ui-kit/ui-text-field/types';
+import { UITextFieldProps } from 'ui/components/ui-kit/ui-text-field/types';
 import { APP_FONTS } from 'app/theme/fonts';
+import { TextTypes } from 'ui/components/ui-kit/ui-text/types';
 
 export const UITextField = forwardRef<any, UITextFieldProps>(({ leadingAccessory, bottomHint, errorMessage, ...props }, ref) => {
   const { theme, styles } = useStyles(stylesheet);
@@ -16,7 +17,7 @@ export const UITextField = forwardRef<any, UITextFieldProps>(({ leadingAccessory
       //
       // onChangeText={() => {}}
       // onClear={() => {}}
-      placeholderTextColor={theme.colors.textField.regular.placeholder}
+      placeholderTextColor={theme.colors.text.secondary.text}
       //
       recorderTag={'mask'}
       showMandatoryIndication
@@ -32,12 +33,12 @@ export const UITextField = forwardRef<any, UITextFieldProps>(({ leadingAccessory
       bottomAccessory={
         <>
           {errorMessage ? (
-            <UIText marginT-10 p2R type={'error'}>
+            <UIText marginT-10 p2R type={TextTypes.error}>
               {errorMessage}
             </UIText>
           ) : undefined}
           {bottomHint ? (
-            <UIText marginT-24 p2R type={'secondary'}>
+            <UIText marginT-24 p2R type={TextTypes.secondary}>
               {bottomHint}
             </UIText>
           ) : undefined}

@@ -1,15 +1,14 @@
 import * as React from 'react';
 import Svg, { G, Path, Defs, ClipPath } from 'react-native-svg';
 import { FC } from 'react';
-import { useStyles } from 'react-native-unistyles';
 
-import { IIconProps } from 'app/types';
+import { APP_COLORS } from 'app/theme';
+import { SvgProps } from 'svg/types';
 
-export const LogoSvg: FC<IIconProps> = ({ color, ...props }) => {
-  const { theme } = useStyles();
+export const LogoSvg: FC<SvgProps> = ({ color = APP_COLORS.white, size = 49, ...props }) => {
   return (
-    <Svg width={265} height={49} viewBox='0 0 265 49' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
-      <G clipPath='url(#clip0_86_2988)' fill={color ? color : theme.colors.svg.primary.bg}>
+    <Svg width={size + 216} height={size} viewBox='0 0 265 49' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
+      <G clipPath='url(#clip0_86_2988)' fill={color}>
         <Path
           fillRule='evenodd'
           clipRule='evenodd'

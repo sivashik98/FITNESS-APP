@@ -1,7 +1,7 @@
 import { CommonActions, createNavigationContainerRef, StackActions } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
 
-import { RootNavigationParams } from 'navigation/root/types';
+import { RootNavigationParams } from 'ui/navigation/root/types';
 
 export const navigationRef = createNavigationContainerRef();
 

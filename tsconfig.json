@@ -12,11 +12,6 @@
       "configs/*": ["./src/configs/*"],
       "tools/*": ["./src/tools/*"],
       "ui/*": ["./src/ui/*"],
-      //
-      "components/*": ["./src/ui/components/*"],
-      "navigation/*": ["./src/ui/navigation/*"],
-      "screens/*": ["./src/ui/screens/*"],
-      "widgets/*": ["./src/ui/widgets/*"]
     },
     "plugins": [{"name": "typescript-eslint-language-service"}],
     "jsx": "react-native",

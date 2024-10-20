@@ -1,7 +1,8 @@
 import { FC } from 'react';
-import { SvgWrapProps } from 'components/svg-wrap/types';
-import { UIView } from 'components/ui-kit';
 import { TouchableOpacity } from 'react-native-ui-lib';
+
+import { SvgWrapProps } from 'ui/components/svg-wrap/types';
+import { UIView } from 'ui/components/ui-kit';
 
 export const SvgWrap: FC<SvgWrapProps> = ({ Icon, onPress, pressProps, iconProps, viewProps }) => {
   if (onPress)

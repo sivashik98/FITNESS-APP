@@ -5,7 +5,7 @@ import { FC } from 'react';
 import { IIconProps } from 'app/types';
 
 export type UIButtonProps = {
-  type: keyof typeof ButtonTypes;
+  type: ButtonTypes;
   loading?: boolean;
   disabled?: boolean;
   title: string;
@@ -13,7 +13,7 @@ export type UIButtonProps = {
   onPress: PressableProps['onPress'];
 } & PressableProps;
 
-enum ButtonTypes {
+export enum ButtonTypes {
   filled = 'filled',
   outlined = 'outlined',
   texted = 'texted',

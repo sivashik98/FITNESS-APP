@@ -1,55 +1,42 @@
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { KeyboardAvoidingView } from 'react-native-keyboard-controller';
 
-import { UIButton, UIText, UIView } from 'components/ui-kit';
-import { Screen } from 'ui/components';
-import { FormField } from 'components/form-field/form-field';
+import { UIButton, UIText, UIView } from 'ui/components/ui-kit';
+import { Screen, FormCodeField } from 'ui/components';
 
 import { useCodeConfirmAdapter } from 'bl-modules/auth/code-confirm';
-import { RootNavigationParams } from 'navigation/root/types';
-import { SignUpTypes } from 'bl-modules/auth/sign-up/slice/types';
-import { FormFieldTypes } from 'components/form-field/types';
+import { RootNavigationParams } from 'ui/navigation/root/types';
+import { TextTypes } from 'ui/components/ui-kit/ui-text/types';
+import { ButtonTypes } from 'ui/components/ui-kit/ui-button/types';
+import { ScreenHeaderTypes } from 'ui/components/screen/types';
 
 export const CodeConfirmScreen = ({}) => {
-  const { signUpType, formData } = useRoute<RouteProp<RootNavigationParams, 'CodeConfirmScreen'>>()?.params;
+  const { authType, authData } = useRoute<RouteProp<RootNavigationParams, 'CodeConfirmScreen'>>()?.params;
   const { form, handlers, localState } = useCodeConfirmAdapter();
 
   return (
     <Screen
+      headerType={ScreenHeaderTypes.Default}
       scroll
-      scrollContainerStyles={{ flex: 1 }}
       content={
         <>
-          <UIView flex>
-            <UIText h2>Код отправили на {signUpType === SignUpTypes.EMAIL ? 'почту' : 'номер'}:</UIText>
-            <UIText h2 type={'secondary'}>
-              {signUpType === SignUpTypes.EMAIL ? formData : `+7 ${formData}`}
-            </UIText>
-            <UIView marginT-70 gap-10>
-              <UIText p1B>Теперь введите код</UIText>
-              <FormField
-                type={FormFieldTypes.CODE_FIELD}
-                name={'code'}
-                control={form.code.control}
-                codeFieldProps={{
-                  cellCount: 6,
-                  bottomHint: `Если код не придет, можно получить новый ${
-                    localState.shouldShowTimer ? `через ${localState.duration} сек` : 'сейчас'
-                  } `,
-                }}
-              />
-            </UIView>
-          </UIView>
-          <KeyboardAvoidingView style={{ gap: 20 }}>
-            <UIButton disabled={localState.shouldShowTimer} type={'filled'} title={'Получить новый код'} onPress={localState.enableTimer} />
-            <UIButton
-              disabled={!form.code.formState.isDirty}
-              type={'filled'}
-              title={'Продолжить'}
-              onPress={form.code.handleSubmit(handlers.submitHandler)}
+          <UIText h2>Код отправили на {authType === 'email' ? 'почту' : 'номер'}:</UIText>
+          <UIText h2 type={TextTypes.secondary}>
+            {authType === 'email' ? authData : `+7 ${authData}`}
+          </UIText>
+          <UIView marginT-70 gap-10>
+            <UIText p1B>Теперь введите код</UIText>
+            <FormCodeField
+              name={'code'}
+              control={form.code.control}
+              cellCount={6}
+              onFinishFillingCode={form.code.handleSubmit(handlers.submitHandler)}
+              bottomHint={`Если код не придет, можно получить новый ${localState.shouldShowTimer ? `через ${localState.duration} сек` : 'сейчас'} `}
             />
-          </KeyboardAvoidingView>
+          </UIView>
         </>
+      }
+      footer={
+        <UIButton disabled={localState.shouldShowTimer} type={ButtonTypes.filled} title={'Получить новый код'} onPress={localState.enableTimer} />
       }
     />
   );

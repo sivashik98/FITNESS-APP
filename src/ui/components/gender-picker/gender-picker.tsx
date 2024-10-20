@@ -5,11 +5,11 @@ import { Pressable } from 'react-native';
 
 import { UIText, UIView } from 'ui/components';
 
-import { GenderPickerProps, GenderTypes } from 'components/gender-picker/types';
-import { TextTypes } from 'components/ui-kit/ui-text/types';
+import { GenderPickerProps, GenderTypes } from 'ui/components/gender-picker/types';
+import { TextTypes } from 'ui/components/ui-kit/ui-text/types';
 
 const GENDERS = [
-  { name: 'Не указан', source: require('png/genders/not-specified-gender.png'), type: GenderTypes.NOT_SPECIFIED },
+  { name: 'Не указано', source: require('png/genders/not-specified-gender.png'), type: GenderTypes.NOT_SPECIFIED },
   { name: 'Женщина', source: require('png/genders/female-gender.png'), type: GenderTypes.FEMALE },
   { name: 'Мужчина', source: require('png/genders/male-gender.png'), type: GenderTypes.MALE },
 ];
@@ -20,9 +20,9 @@ export const GenderPicker: FC<GenderPickerProps> = ({ active, onPress }) => {
   return (
     <UIView row spread>
       {GENDERS.map((gender) => (
-        <Pressable key={gender.name} onPress={() => onPress(gender.type)}>
+        <Pressable key={gender.name} onPress={() => onPress(gender.type)} style={styles.container}>
           <UIView style={[styles.card, active === gender.type && styles['card-active']]}>
-            <UIText p1B type={active === gender.type ? TextTypes.accent : TextTypes.primary}>
+            <UIText p2B numberOfLines={1} type={active === gender.type ? TextTypes.accent : TextTypes.primary}>
               {gender.name}
             </UIText>
             <Image source={gender.source} style={styles.image} />
@@ -34,8 +34,11 @@ export const GenderPicker: FC<GenderPickerProps> = ({ active, onPress }) => {
 };
 
 const stylesheet = createStyleSheet((theme) => ({
+  container: {
+    flexShrink: 1,
+  },
   card: {
-    padding: 12,
+    padding: 10,
     paddingBottom: 0,
     backgroundColor: theme.colors.genderPicker.primary.bg,
     gap: 12,

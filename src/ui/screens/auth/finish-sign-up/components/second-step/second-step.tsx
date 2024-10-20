@@ -1,5 +1,5 @@
 import { UIText, UIView } from 'ui/components';
-import { TextTypes } from 'components/ui-kit/ui-text/types';
+import { TextTypes } from 'ui/components/ui-kit/ui-text/types';
 
 export const SecondStep = ({}) => {
   return (

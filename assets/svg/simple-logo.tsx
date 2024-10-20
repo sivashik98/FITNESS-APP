@@ -3,9 +3,9 @@ import Svg, { Path } from 'react-native-svg';
 import { FC } from 'react';
 import { useStyles } from 'react-native-unistyles';
 
-import { IIconProps } from 'app/types';
+import { SvgProps } from 'svg/types';
 
-export const SimpleLogoSvg: FC<IIconProps> = ({ color, ...props }) => {
+export const SimpleLogoSvg: FC<SvgProps> = ({ color, ...props }) => {
   const { theme } = useStyles();
   return (
     <Svg width={95} height={13} viewBox='0 0 95 13' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>

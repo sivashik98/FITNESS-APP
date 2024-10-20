@@ -8,7 +8,7 @@ export const UIText: FC<UITextProps> = ({ children, type = TextTypes.primary, ..
   const { theme } = useStyles();
 
   return (
-    <Text flexS color={theme.colors.text[type].text} {...props}>
+    <Text flexS allowFontScaling={false} color={theme.colors.text[type].text} {...props}>
       {children}
     </Text>
   );

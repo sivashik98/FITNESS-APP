@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 
-import { FULL_NAME_VALIDATION } from 'tools/services/validation/constants';
+import { FULL_NAME_VALIDATION } from 'configs/validation/constants';
 
 export type FullNameFormFields = {
   name: string;

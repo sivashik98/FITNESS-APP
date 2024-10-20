@@ -1,10 +1,33 @@
-import { APP_COLORS } from 'app/theme/colors';
+import { APP_COLORS, APP_GRADIENTS } from 'app/theme/colors';
 
 export const LIGHT_THEME = {
   colors: {
+    menuItemList: {
+      regular: {
+        bg: APP_COLORS.primaryWhite,
+      },
+    },
+    switch: {
+      regular: {
+        bg: APP_COLORS.lightGray,
+        bgActive: APP_COLORS.darkIris,
+      },
+    },
+    userWidget: {
+      default: {
+        bg: APP_COLORS.white,
+        shadow: APP_COLORS.shadowLight,
+      },
+    },
+    userHeader: {
+      regular: {
+        bg: APP_COLORS.primaryWhite,
+        shadow: APP_COLORS.shadowGray,
+      },
+    },
     progressBar: {
       regular: {
-        activeBg: APP_COLORS.iris,
+        activeBg: APP_COLORS.darkIris,
         bg: APP_COLORS.lightGray,
       },
     },
@@ -26,7 +49,6 @@ export const LIGHT_THEME = {
       },
       regular: {
         border: APP_COLORS.gray,
-        placeholder: APP_COLORS.disabledGray,
       },
       code: {
         bg: APP_COLORS.lightGray,
@@ -66,7 +88,7 @@ export const LIGHT_THEME = {
         text: APP_COLORS.error,
       },
       accent: {
-        text: APP_COLORS.iris,
+        text: APP_COLORS.darkIris,
       },
     },
     svg: {
@@ -96,14 +118,41 @@ export const LIGHT_THEME = {
       bg: APP_COLORS.white,
       shadow: APP_COLORS.black,
     },
+    bottomBar: {
+      bg: APP_COLORS.white,
+      gradient: APP_GRADIENTS.darkIris,
+    },
   },
 } as const;
 
 export const DARK_THEME = {
   colors: {
+    menuItemList: {
+      regular: {
+        bg: APP_COLORS.darkGray,
+      },
+    },
+    switch: {
+      regular: {
+        bg: APP_COLORS.gray,
+        bgActive: APP_COLORS.iris,
+      },
+    },
+    userWidget: {
+      default: {
+        bg: APP_COLORS.darkGray,
+        shadow: APP_COLORS.shadowLight,
+      },
+    },
+    userHeader: {
+      regular: {
+        bg: APP_COLORS.darkGray,
+        shadow: APP_COLORS.lightGray,
+      },
+    },
     progressBar: {
       regular: {
-        activeBg: APP_COLORS.darkIris,
+        activeBg: APP_COLORS.iris,
         bg: APP_COLORS.gray,
       },
     },
@@ -114,9 +163,9 @@ export const DARK_THEME = {
     },
     segmentControl: {
       regular: {
-        bg: APP_COLORS.disabledGray,
+        bg: APP_COLORS.darkGray,
         text: APP_COLORS.white,
-        activeBg: APP_COLORS.gray,
+        activeBg: APP_COLORS.black,
       },
     },
     textField: {
@@ -125,7 +174,6 @@ export const DARK_THEME = {
       },
       regular: {
         border: APP_COLORS.darkGray,
-        placeholder: APP_COLORS.gray,
       },
       code: {
         bg: APP_COLORS.gray,
@@ -165,7 +213,7 @@ export const DARK_THEME = {
         text: APP_COLORS.darkError,
       },
       accent: {
-        text: APP_COLORS.darkIris,
+        text: APP_COLORS.morningIris,
       },
     },
     svg: {
@@ -194,6 +242,10 @@ export const DARK_THEME = {
     app: {
       bg: APP_COLORS.black,
       shadow: APP_COLORS.white,
+    },
+    bottomBar: {
+      bg: APP_COLORS.darkGray,
+      gradient: APP_GRADIENTS.iris,
     },
   },
 } as const;

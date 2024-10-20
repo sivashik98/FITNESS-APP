@@ -2,7 +2,7 @@ import { useCallback, useRef, useState } from 'react';
 import { ICarouselInstance } from 'react-native-reanimated-carousel';
 import { KeyboardController } from 'react-native-keyboard-controller';
 
-import { GenderTypes } from 'components/gender-picker/types';
+import { GenderTypes } from 'ui/components/gender-picker/types';
 import { STEPS } from 'bl-modules/auth/finish-sign-up/adapters/constants';
 
 export const useFinishSignUpLocalState = () => {

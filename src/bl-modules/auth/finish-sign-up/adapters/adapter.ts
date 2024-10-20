@@ -14,7 +14,7 @@ export const useFinishSignUpAdapter = (): FinishSignUpAdapterReturnValues => {
   const localState = useFinishSignUpLocalState();
   const form = useFinishSignUpForm();
   const handlers = useFinishSignUpHandlers(localState, form);
-  const variables = useFinishSignUpVariables(localState, handlers);
+  const variables = useFinishSignUpVariables(localState, handlers, form);
 
   return { variables, localState, form, handlers };
 };

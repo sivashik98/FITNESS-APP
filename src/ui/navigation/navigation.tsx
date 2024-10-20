@@ -1,11 +1,10 @@
 import React, { FC } from 'react';
-
+import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 
-import { RootNavigation } from 'navigation/root';
+import { RootNavigation } from 'ui/navigation/root/root';
 import { navigationRef } from 'tools/services/navigation/navigation';
-import { StatusBar } from 'expo-status-bar';
-// import { NAVIGATIONS_COLORS } from 'configs/Theme/colors'
+
 // import { navigationRef } from 'services/Navigation'
 
 export const Navigation: FC<{}> = ({}) => {
@@ -16,10 +15,6 @@ export const Navigation: FC<{}> = ({}) => {
       ref={navigationRef}
       fallback={null}
       // onReady={onReady}
-      // theme={{
-      //   dark: false,
-      //   colors: NAVIGATIONS_COLORS,
-      // }}
     >
       <StatusBar translucent />
       <RootNavigation />

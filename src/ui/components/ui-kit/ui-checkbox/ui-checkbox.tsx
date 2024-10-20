@@ -4,8 +4,8 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { UIText, UIView } from 'ui/components';
 
-import { UICheckboxProps } from 'components/ui-kit/ui-checkbox/types';
-import { TextTypes } from 'components/ui-kit/ui-text/types';
+import { UICheckboxProps } from 'ui/components/ui-kit/ui-checkbox/types';
+import { TextTypes } from 'ui/components/ui-kit/ui-text/types';
 
 export const UICheckbox: FC<UICheckboxProps> = ({ value, onValueChange, Label, errorMessage, ...props }) => {
   const { styles, theme } = useStyles(stylesheet);

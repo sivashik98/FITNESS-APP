@@ -8,6 +8,7 @@ export const APP_COLORS = {
   disabledGray: '#A2A0BD',
   darkGray: '#3D4963',
   shadowGray: '#1C1E284C',
+  shadowLight: 'rgba(186,186,186,0.2)',
   lightGray: '#eaeaea',
   success: '#42C860',
   error: '#C52516',
@@ -19,16 +20,8 @@ export const APP_COLORS = {
 } as const;
 
 export const APP_GRADIENTS = {
-  blue: ['#6E11CC', '#9F4DF1'],
+  iris: ['#6E11CC', '#9F4DF1'],
+  darkIris: ['#500998', '#7439af'],
   skeleton: ['rgba(40,43,49,0.2)', 'rgba(40,43,49,0.6)', 'rgba(40,43,49,0.2)'],
   skeleton_light: ['rgba(18,22,30,0.2)', 'rgba(18,22,30,0.6)', 'rgba(18,22,30,0.2)'],
 } as const;
-
-// export const NAVIGATIONS_COLORS = {
-//   // primary: COLORS.skyBlue,
-//   // background: COLORS.bgPrimary,
-//   // card: COLORS.bgPrimary,
-//   // text: COLORS.bgPrimary,
-//   // border: COLORS.border,
-//   // notification: COLORS.bgPrimary,
-// };

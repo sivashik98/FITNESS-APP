@@ -1,31 +1,48 @@
-import { UIView } from 'components/ui-kit';
 import LottieView from 'lottie-react-native';
-import { runOnJS, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
+import { FadeIn, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import React, { FC, useEffect, useRef } from 'react';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
-import { SCREEN_WIDTH } from 'app/constants';
+import shuffle from 'lodash/shuffle';
 
-type SplashProps = {
-  setIsReady: React.Dispatch<React.SetStateAction<boolean>>;
-};
+import { UIView } from 'ui/components';
+
+import { DimensionsService } from 'tools/services';
+import { SplashProps } from 'ui/components/splash/types';
 
 export const Splash: FC<SplashProps> = ({ setIsReady }) => {
   const animationRef = useRef<LottieView | null>(null);
   const animationFinished = useSharedValue<boolean>(false);
   const animatedStyles = useAnimatedStyle(() => ({
-    transform: [{ scale: animationFinished.value ? withSpring(0.4) : 1.2 }],
-    opacity: animationFinished.value ? withTiming(0, {}, () => runOnJS(setIsReady)(true)) : 1,
+    opacity: animationFinished.value ? withTiming(0, { duration: 200 }, () => runOnJS(setIsReady)(true)) : 1,
   }));
-  const source = require('lottie/splash.json');
-  const { styles } = useStyles(stylesheet);
+  const { styles, theme } = useStyles(stylesheet);
+  const source = shuffle([
+    require('lottie/splash-1.json'),
+    require('lottie/splash-2.json'),
+    require('lottie/splash-3.json'),
+    require('lottie/splash-4.json'),
+  ])[0];
 
   useEffect(() => {
     animationRef.current?.play();
   }, []);
 
   return (
-    <UIView reanimated center style={[styles.container, animatedStyles]}>
-      <LottieView ref={animationRef} source={source} loop={false} onAnimationFinish={() => (animationFinished.value = true)} style={styles.lottie} />
+    <UIView
+      reanimated
+      entering={FadeIn.duration(300).delay(150)}
+      backgroundColor={theme.colors.app.bg}
+      center
+      style={[styles.container, animatedStyles]}
+    >
+      <LottieView
+        ref={animationRef}
+        source={source}
+        loop={false}
+        speed={1.6}
+        onAnimationFinish={() => (animationFinished.value = true)}
+        style={styles.lottie}
+      />
     </UIView>
   );
 };
@@ -41,7 +58,7 @@ const stylesheet = createStyleSheet((theme) => ({
   },
 
   lottie: {
-    width: SCREEN_WIDTH,
-    height: SCREEN_WIDTH,
+    width: DimensionsService.screen.width,
+    height: DimensionsService.screen.width,
   },
 }));
