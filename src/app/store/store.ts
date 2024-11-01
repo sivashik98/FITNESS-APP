@@ -1,20 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
-
-import { persistedReducer } from './persisted';
-import { rootReducer } from './reducers';
-import { api } from 'app/api';
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
 
+import { rootReducer } from './reducers';
+import { api } from 'app/api';
+
 export const store = configureStore({
-  reducer: persistedReducer,
-  devTools: false,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }).concat(api.middleware),
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;

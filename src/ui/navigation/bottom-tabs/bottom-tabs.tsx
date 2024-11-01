@@ -6,14 +6,28 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { ProfileScreen, FeedScreen } from 'ui/screens';
 
 import { BottomTabsNavigationParams } from './types';
-import { SvgWrap } from 'ui/components';
+import { SvgContainer } from 'ui/components';
 import { FeedIconSvg } from 'svg/navigation/feed-icon';
 import { ProfileIconSvg } from 'svg/navigation/profile-icon';
+import { APP_COLORS } from 'app/theme';
 
 const Tabs = createBottomTabNavigator<BottomTabsNavigationParams>();
 
+const BottomTab: FC<{ Icon: any; focused: boolean }> = ({ Icon, focused }) => {
+  const { theme, styles } = useStyles(stylesheet);
+  const colors = focused ? theme.colors.bottomBar.gradient : ['transparent', 'transparent'];
+  const color = focused ? APP_COLORS.white : theme.colors.bottomBar.icon;
+
+  return (
+    // @ts-ignore
+    <LinearGradient colors={colors} style={styles.tabBarIcon}>
+      <SvgContainer Icon={Icon} iconProps={{ color, size: 22 }} />
+    </LinearGradient>
+  );
+};
+
 export const BottomTabsNavigation: FC<{}> = ({}) => {
-  const { styles, theme } = useStyles(stylesheet);
+  const { styles } = useStyles(stylesheet);
   return (
     <Tabs.Navigator
       screenOptions={{
@@ -28,22 +42,14 @@ export const BottomTabsNavigation: FC<{}> = ({}) => {
         name={'FeedScreen'}
         component={FeedScreen}
         options={{
-          tabBarIcon: ({ focused }) => (
-            <LinearGradient colors={focused ? theme.colors.bottomBar.gradient : []} style={styles.tabBarIcon}>
-              <SvgWrap Icon={FeedIconSvg} />
-            </LinearGradient>
-          ),
+          tabBarIcon: ({ focused }) => <BottomTab Icon={FeedIconSvg} focused={focused} />,
         }}
       />
       <Tabs.Screen
         name={'ProfileScreen'}
         component={ProfileScreen}
         options={{
-          tabBarIcon: ({ focused }) => (
-            <LinearGradient colors={focused ? theme.colors.bottomBar.gradient : []} style={styles.tabBarIcon}>
-              <SvgWrap Icon={ProfileIconSvg} />
-            </LinearGradient>
-          ),
+          tabBarIcon: ({ focused }) => <BottomTab Icon={ProfileIconSvg} focused={focused} />,
         }}
       />
     </Tabs.Navigator>
@@ -55,7 +61,7 @@ const stylesheet = createStyleSheet((theme) => ({
     backgroundColor: theme.colors.bottomBar.bg,
     shadowOpacity: 0.2,
     shadowRadius: 5,
-    shadowColor: theme.colors.userHeader.regular.shadow,
+    shadowColor: theme.colors.userHeader.shadow,
     elevation: 5,
   },
   tabBarLabelStyle: {

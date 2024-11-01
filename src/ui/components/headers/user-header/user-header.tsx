@@ -9,14 +9,14 @@ import { TextTypes } from 'ui/components/ui-kit/ui-text/types';
 import { UserHeaderProps } from 'ui/components/headers/user-header/types';
 import { NavigationService } from 'tools/services';
 
-export const UserHeader: FC<UserHeaderProps> = ({}) => {
+export const UserHeader: FC<UserHeaderProps> = ({ ...props }) => {
   const { styles } = useStyles(stylesheet);
 
   return (
-    <UIView style={styles.container}>
+    <UIView {...props} style={styles.container}>
       <UIView gap-6>
-        <UIText h2>Привет!</UIText>
-        <UIText p3R type={TextTypes.secondary}>
+        <UIText font={'h2'}>Привет!</UIText>
+        <UIText font={'p3R'} type={TextTypes.secondary}>
           +7 909 375-37-44
         </UIText>
       </UIView>
@@ -35,13 +35,13 @@ const stylesheet = createStyleSheet((theme, rt) => ({
     paddingHorizontal: 20,
     borderBottomEndRadius: 35,
     borderBottomLeftRadius: 35,
-    backgroundColor: theme.colors.userHeader.regular.bg,
+    backgroundColor: theme.colors.userHeader.bg,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     shadowOpacity: 1,
     shadowRadius: 5,
-    shadowColor: theme.colors.userHeader.regular.shadow,
+    shadowColor: theme.colors.userHeader.shadow,
     elevation: 5,
   },
   logo: {

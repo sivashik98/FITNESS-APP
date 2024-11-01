@@ -18,15 +18,15 @@ export const ProfileScreen = ({}) => {
       headerProps={{ title: 'Мои данные и настройки', canGoBack: false }}
       scroll
       content={
-        <UIView gap-20>
-          <UIView center>
+        <UIView gap={20}>
+          <UIView ai={'center'}>
             <Image source={require('png/circle-logo.png')} style={{ width: 100, height: 100 }} />
           </UIView>
-          <UIView gap-6>
-            <UIText h2 center>
+          <UIView gap={6}>
+            <UIText font={'h2'} center>
               Алинмова Мила Николаевна
             </UIText>
-            <UIText p1M type={TextTypes.accent} center>
+            <UIText font={'p1M'} type={TextTypes.accent} center>
               +7 909 375-37-44
             </UIText>
           </UIView>

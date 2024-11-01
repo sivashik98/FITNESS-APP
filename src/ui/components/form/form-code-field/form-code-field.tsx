@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { useController } from 'react-hook-form';
 
-import { UICodeField } from 'ui/components/ui-kit';
+import { UICodeField, UIView } from 'ui/components/ui-kit';
 
 import { FormCodeFieldProps } from 'ui/components/form/form-code-field/types';
 
@@ -18,15 +18,17 @@ export const FormCodeField: FC<FormCodeFieldProps> = ({ control, name, onFinishF
   }, [field.value]);
 
   return (
-    <UICodeField
-      key={name}
-      cellCount={cellCount}
-      {...props}
-      // ref={field.ref}
-      value={field.value}
-      // onClear={() => field.onChange('')}
-      onChangeText={field.onChange}
-      errorMessage={fieldState.error?.message}
-    />
+    <UIView animated from={{ scale: 0.3 }} animate={{ scale: 1 }}>
+      <UICodeField
+        key={name}
+        cellCount={cellCount}
+        {...props}
+        ref={field.ref}
+        value={field.value}
+        onChangeText={field.onChange}
+        errorMessage={fieldState.error?.message}
+        // onClear={() => field.onChange('')}
+      />
+    </UIView>
   );
 };

@@ -1,2 +1,2 @@
 export { APP_COLORS } from './colors';
-export { initTheme } from './init';
+export { APP_FONTS } from './fonts';

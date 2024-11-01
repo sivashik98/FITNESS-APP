@@ -5,7 +5,7 @@ import { FC } from 'react';
 import { APP_COLORS } from 'app/theme';
 import { SvgProps } from 'svg/types';
 
-export const LogoSvg: FC<SvgProps> = ({ color = APP_COLORS.white, size = 49, ...props }) => {
+export const LogoSvg: FC<SvgProps> = ({ color = APP_COLORS.white, size = 50, ...props }) => {
   return (
     <Svg width={size + 216} height={size} viewBox='0 0 265 49' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <G clipPath='url(#clip0_86_2988)' fill={color}>

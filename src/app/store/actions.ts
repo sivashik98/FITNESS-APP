@@ -1,14 +1,14 @@
 import { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
-// import { bindActionCreators } from '@reduxjs/toolkit';
+import { bindActionCreators } from '@reduxjs/toolkit';
 
-// import { signUpActions } from '../../bl-modules/auth/hybrid-auth';
+import { userInfoActions } from 'bl-modules/user/user-info';
 
 export const useAppActions = () => {
   const dispatch = useDispatch();
   return useMemo(
     () => ({
-      // signUpActions: bindActionCreators(signUpActions, dispatch),
+      userInfoActions: bindActionCreators(userInfoActions, dispatch),
     }),
     [dispatch]
   );

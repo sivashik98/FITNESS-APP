@@ -8,28 +8,20 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 
 import { Navigation } from 'ui/navigation/navigation';
-import { LoaderProvider, PersistProvider, SplashProvider, StoreProvider } from 'app/providers';
-
-import { initTheme } from 'app/theme';
-
-initTheme();
+import { LoaderProvider, StoreProvider } from 'app/providers';
 
 const App = () => {
   return (
     <StoreProvider>
-      <PersistProvider>
-        <GestureHandlerRootView style={{ flex: 1 }}>
-          <SafeAreaProvider>
-            <KeyboardProvider>
-              <LoaderProvider>
-                <SplashProvider>
-                  <Navigation />
-                </SplashProvider>
-              </LoaderProvider>
-            </KeyboardProvider>
-          </SafeAreaProvider>
-        </GestureHandlerRootView>
-      </PersistProvider>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <SafeAreaProvider>
+          <KeyboardProvider>
+            <LoaderProvider>
+              <Navigation />
+            </LoaderProvider>
+          </KeyboardProvider>
+        </SafeAreaProvider>
+      </GestureHandlerRootView>
     </StoreProvider>
   );
 };

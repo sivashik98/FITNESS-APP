@@ -7,41 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		005770A1952147A59C656956 /* SF-Pro-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = DBB5441000174C1B96F1EB38 /* SF-Pro-Display-Thin.otf */; };
-		05A2652C47C548EEA043DAEA /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1AFE4797393D4ABDACE8D789 /* SF-Pro-Display-Semibold.otf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1C2CB5F7146F4373B4512B29 /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7DEB3861CE149E5BAD096BC /* Manrope-Bold.ttf */; };
+		2D85587271F874B435BC298E /* Pods_yuteam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B713125C1C7A5BA2DF5C73AF /* Pods_yuteam.framework */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		4CC3984AA77347CBACBBBC3F /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A3CA67D1780B4F929E4DE8FE /* SF-Pro-Display-Regular.otf */; };
-		8BFB9B3CEDE7DDD73C6220B2 /* Pods_yuteam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35A998902AE85E363D2C451 /* Pods_yuteam.framework */; };
-		94B5F3B6D029484F95C2ACD7 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB4ECB59474431ABFBCA9A3 /* noop-file.swift */; };
-		A582CAFC453840149D90E5AA /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D3527D5F68584211996C3318 /* SF-Pro-Display-Medium.otf */; };
-		A87FEB1623DB449BBE71D71E /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 792EE7C7420F419DBF1E017F /* SF-Pro-Display-Bold.otf */; };
+		52ED898FC84E4B44A75C3BEF /* Manrope-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6255F959B05543BDBF128C2D /* Manrope-SemiBold.ttf */; };
+		576E84706A0042F696FFB502 /* Manrope-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD687DFCAAEB4ADAB54679D6 /* Manrope-ExtraBold.ttf */; };
+		615230822E8A4BBB8C3C17D7 /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9FE0BA95A3B45A786E9E345 /* Manrope-Medium.ttf */; };
+		A72210F6C9C34428A6FDC90C /* Manrope-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2BB16607D8D4EA0B48AA6CA /* Manrope-Light.ttf */; };
+		B079803F73874316B33B6D06 /* Manrope-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F283A009CD44EBBA7687BFC /* Manrope-ExtraLight.ttf */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		BD10657C8B3446839687B19D /* Manrope-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 129AFFD02BAF4E30B5D747EC /* Manrope-Regular.ttf */; };
+		C1CCABAA62794830AC603269 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF013276D6846DDAC8C32C9 /* noop-file.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		129AFFD02BAF4E30B5D747EC /* Manrope-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Manrope-Regular.ttf"; path = "../assets/fonts/manrope/Manrope-Regular.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* yuteam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yuteam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = yuteam/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = yuteam/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = yuteam/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = yuteam/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = yuteam/main.m; sourceTree = "<group>"; };
-		1AFE4797393D4ABDACE8D789 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Display-Semibold.otf"; path = "../assets/fonts/sf-pro/SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
-		5FB4ECB59474431ABFBCA9A3 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "yuteam/noop-file.swift"; sourceTree = "<group>"; };
+		2F283A009CD44EBBA7687BFC /* Manrope-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Manrope-ExtraLight.ttf"; path = "../assets/fonts/manrope/Manrope-ExtraLight.ttf"; sourceTree = "<group>"; };
+		6255F959B05543BDBF128C2D /* Manrope-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Manrope-SemiBold.ttf"; path = "../assets/fonts/manrope/Manrope-SemiBold.ttf"; sourceTree = "<group>"; };
 		6C2E3173556A471DD304B334 /* Pods-yuteam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yuteam.debug.xcconfig"; path = "Target Support Files/Pods-yuteam/Pods-yuteam.debug.xcconfig"; sourceTree = "<group>"; };
-		792EE7C7420F419DBF1E017F /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Display-Bold.otf"; path = "../assets/fonts/sf-pro/SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-yuteam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yuteam.release.xcconfig"; path = "Target Support Files/Pods-yuteam/Pods-yuteam.release.xcconfig"; sourceTree = "<group>"; };
-		A3CA67D1780B4F929E4DE8FE /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Display-Regular.otf"; path = "../assets/fonts/sf-pro/SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = yuteam/SplashScreen.storyboard; sourceTree = "<group>"; };
+		B2BB16607D8D4EA0B48AA6CA /* Manrope-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Manrope-Light.ttf"; path = "../assets/fonts/manrope/Manrope-Light.ttf"; sourceTree = "<group>"; };
+		B713125C1C7A5BA2DF5C73AF /* Pods_yuteam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yuteam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7DEB3861CE149E5BAD096BC /* Manrope-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Manrope-Bold.ttf"; path = "../assets/fonts/manrope/Manrope-Bold.ttf"; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		D3527D5F68584211996C3318 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Display-Medium.otf"; path = "../assets/fonts/sf-pro/SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
-		D35A998902AE85E363D2C451 /* Pods_yuteam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yuteam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBB5441000174C1B96F1EB38 /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Display-Thin.otf"; path = "../assets/fonts/sf-pro/SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
+		C027C3626EC74DE7A9DE98FF /* yuteam-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "yuteam-Bridging-Header.h"; path = "yuteam/yuteam-Bridging-Header.h"; sourceTree = "<group>"; };
+		CD687DFCAAEB4ADAB54679D6 /* Manrope-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Manrope-ExtraBold.ttf"; path = "../assets/fonts/manrope/Manrope-ExtraBold.ttf"; sourceTree = "<group>"; };
+		E9FE0BA95A3B45A786E9E345 /* Manrope-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Manrope-Medium.ttf"; path = "../assets/fonts/manrope/Manrope-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F9C6AD2E74CB45D9BE11F389 /* yuteam-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "yuteam-Bridging-Header.h"; path = "yuteam/yuteam-Bridging-Header.h"; sourceTree = "<group>"; };
+		EEF013276D6846DDAC8C32C9 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "yuteam/noop-file.swift"; sourceTree = "<group>"; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-yuteam/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BFB9B3CEDE7DDD73C6220B2 /* Pods_yuteam.framework in Frameworks */,
+				2D85587271F874B435BC298E /* Pods_yuteam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,8 +71,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				5FB4ECB59474431ABFBCA9A3 /* noop-file.swift */,
-				F9C6AD2E74CB45D9BE11F389 /* yuteam-Bridging-Header.h */,
+				EEF013276D6846DDAC8C32C9 /* noop-file.swift */,
+				C027C3626EC74DE7A9DE98FF /* yuteam-Bridging-Header.h */,
 			);
 			name = yuteam;
 			sourceTree = "<group>";
@@ -77,19 +81,21 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				D35A998902AE85E363D2C451 /* Pods_yuteam.framework */,
+				B713125C1C7A5BA2DF5C73AF /* Pods_yuteam.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6972996A71014C91AB68B086 /* Resources */ = {
+		6A449D777A394444B67C87D1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				792EE7C7420F419DBF1E017F /* SF-Pro-Display-Bold.otf */,
-				D3527D5F68584211996C3318 /* SF-Pro-Display-Medium.otf */,
-				A3CA67D1780B4F929E4DE8FE /* SF-Pro-Display-Regular.otf */,
-				1AFE4797393D4ABDACE8D789 /* SF-Pro-Display-Semibold.otf */,
-				DBB5441000174C1B96F1EB38 /* SF-Pro-Display-Thin.otf */,
+				B7DEB3861CE149E5BAD096BC /* Manrope-Bold.ttf */,
+				CD687DFCAAEB4ADAB54679D6 /* Manrope-ExtraBold.ttf */,
+				2F283A009CD44EBBA7687BFC /* Manrope-ExtraLight.ttf */,
+				B2BB16607D8D4EA0B48AA6CA /* Manrope-Light.ttf */,
+				E9FE0BA95A3B45A786E9E345 /* Manrope-Medium.ttf */,
+				129AFFD02BAF4E30B5D747EC /* Manrope-Regular.ttf */,
+				6255F959B05543BDBF128C2D /* Manrope-SemiBold.ttf */,
 			);
 			name = Resources;
 			path = "";
@@ -111,7 +117,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D65327D7A22EEC0BE12398D9 /* Pods */,
 				D7E4C46ADA2E9064B798F356 /* ExpoModulesProviders */,
-				6972996A71014C91AB68B086 /* Resources */,
+				6A449D777A394444B67C87D1 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -168,13 +174,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "yuteam" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				605CF5B5A3997F51957D207A /* [Expo] Configure project */,
+				4AE0C5B4C7E3573DD51EA4C1 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				4455AC42DBD6F31E8467C1E3 /* [CP] Embed Pods Frameworks */,
+				747F5175657329572B04C444 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,11 +230,13 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				A87FEB1623DB449BBE71D71E /* SF-Pro-Display-Bold.otf in Resources */,
-				A582CAFC453840149D90E5AA /* SF-Pro-Display-Medium.otf in Resources */,
-				4CC3984AA77347CBACBBBC3F /* SF-Pro-Display-Regular.otf in Resources */,
-				05A2652C47C548EEA043DAEA /* SF-Pro-Display-Semibold.otf in Resources */,
-				005770A1952147A59C656956 /* SF-Pro-Display-Thin.otf in Resources */,
+				1C2CB5F7146F4373B4512B29 /* Manrope-Bold.ttf in Resources */,
+				576E84706A0042F696FFB502 /* Manrope-ExtraBold.ttf in Resources */,
+				B079803F73874316B33B6D06 /* Manrope-ExtraLight.ttf in Resources */,
+				A72210F6C9C34428A6FDC90C /* Manrope-Light.ttf in Resources */,
+				615230822E8A4BBB8C3C17D7 /* Manrope-Medium.ttf in Resources */,
+				BD10657C8B3446839687B19D /* Manrope-Regular.ttf in Resources */,
+				52ED898FC84E4B44A75C3BEF /* Manrope-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,25 +280,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4455AC42DBD6F31E8467C1E3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-yuteam/Pods-yuteam-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yuteam/Pods-yuteam-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		605CF5B5A3997F51957D207A /* [Expo] Configure project */ = {
+		4AE0C5B4C7E3573DD51EA4C1 /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -308,6 +298,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-yuteam/expo-configure-project.sh\"\n";
+		};
+		747F5175657329572B04C444 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-yuteam/Pods-yuteam-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yuteam/Pods-yuteam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -349,7 +357,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */,
-				94B5F3B6D029484F95C2ACD7 /* noop-file.swift in Sources */,
+				C1CCABAA62794830AC603269 /* noop-file.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

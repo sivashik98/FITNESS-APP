@@ -1,3 +1,3 @@
-import { SwitchProps } from 'react-native-ui-lib';
+import { SwitchProps } from 'react-native';
 
 export type UISwitchProps = SwitchProps;

@@ -3,7 +3,7 @@ import { BottomTabsNavigationParams } from 'ui/navigation/bottom-tabs/types';
 export type RootNavigationParams = {
   WelcomeScreen: undefined;
   HybridAuthScreen: undefined;
-  CodeConfirmScreen: { authType: 'phone' | 'email'; authData: string };
+  CodeConfirmScreen: { authMethod: string };
   FinishSignUpScreen: undefined;
   BottomTabsNavigation: { screen?: keyof BottomTabsNavigationParams };
   ProfileScreen: undefined;
@@ -12,4 +12,7 @@ export type RootNavigationParams = {
   AboutAppScreen: undefined;
   DocumentsScreen: undefined;
   AboutUserScreen: undefined;
+  PrivacyPolicyScreen: undefined;
+  WorkoutScreen: undefined;
+  ArticlesScreen: undefined;
 };

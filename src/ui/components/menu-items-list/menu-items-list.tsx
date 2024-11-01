@@ -5,12 +5,14 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 import { UIText, UIView } from 'ui/components';
 
 import { MenuItemsListProps } from 'ui/components/menu-items-list/types';
+import { useSpacings } from 'tools/hooks/use-spacings/use-spacings';
 
-export const MenuItemsList: FC<MenuItemsListProps> = ({ items }) => {
+export const MenuItemsList: FC<MenuItemsListProps> = ({ items, ...props }) => {
   const { styles } = useStyles(stylesheet);
+  const { margin, padding } = useSpacings(props);
 
   return (
-    <UIView gap-1>
+    <UIView gap={1} style={[margin, padding]}>
       {items.map(({ title, RightComponent, onPress }, index) => {
         const isFirst = index === 0;
         const isLast = index === items.length - 1;
@@ -21,7 +23,7 @@ export const MenuItemsList: FC<MenuItemsListProps> = ({ items }) => {
             onPress={onPress}
             style={[styles.item, isFirst && styles['item-first'], isLast && styles['item-last']]}
           >
-            <UIText p2M>{title}</UIText>
+            <UIText font={'p2M'}>{title}</UIText>
             {RightComponent && <RightComponent />}
           </TouchableOpacity>
         );
@@ -32,7 +34,7 @@ export const MenuItemsList: FC<MenuItemsListProps> = ({ items }) => {
 
 const stylesheet = createStyleSheet((theme) => ({
   item: {
-    backgroundColor: theme.colors.menuItemList.regular.bg,
+    backgroundColor: theme.colors.menuItemList.bg,
     padding: 16,
     flexDirection: 'row',
     justifyContent: 'space-between',

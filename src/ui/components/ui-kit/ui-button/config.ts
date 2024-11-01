@@ -1,4 +1,4 @@
-import { ShadowConfigType } from 'components/ui-kit/ui-button/types';
+import { ShadowConfigType } from 'ui/components/ui-kit/ui-button/types';
 
 export const SHADOW_CONFIG: ShadowConfigType = {
   filled: {

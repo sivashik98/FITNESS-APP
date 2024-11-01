@@ -25,7 +25,7 @@
     // noPropertyAccessFromIndexSignature: true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noUncheckedSideEffectImports": true,
+    //    "noUncheckedSideEffectImports": true,
     "noEmit": false,
     "removeComments": true,
     "allowJs": true,

@@ -1,9 +1,12 @@
 import { useState } from 'react';
 
+type AuthTabs = {
+  type: 'phone' | 'email';
+  index: 0 | 1;
+};
+
 export const useHybridAuthLocalState = () => {
-  const [tab, setTab] = useState<'phone' | 'email'>('email');
+  const [tab, setTab] = useState<AuthTabs>({ type: 'email', index: 0 });
 
-  const onChangeTab = (index: number) => setTab(index === 0 ? 'email' : 'phone');
-
-  return { tab, onChangeTab };
+  return { tab, setTab };
 };

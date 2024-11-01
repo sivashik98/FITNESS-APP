@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 import { ViewStyle } from 'react-native';
-import { DefaultHeaderProps } from 'components/headers/default-header/types';
 import { ScrollHandlerProcessed } from 'react-native-reanimated';
+import { DefaultHeaderProps } from 'ui/components/headers/default-header/types';
 
 export type ScreenProps = {
   content: ReactElement;

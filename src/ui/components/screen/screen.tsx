@@ -1,16 +1,14 @@
 import React, { FC, useMemo } from 'react';
 import Animated, { FadeIn } from 'react-native-reanimated';
-import { KeyboardAvoidingView, Platform } from 'react-native';
+import { Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
+import { KeyboardAwareScrollView, KeyboardAvoidingView } from 'react-native-keyboard-controller';
 
 import { UserHeader, UIView, DefaultHeader } from 'ui/components';
 
 import { ScreenHeaderTypes, ScreenProps } from 'ui/components/screen/types';
 import { useGetLayout } from 'tools/hooks';
-import { RefreshControl } from 'react-native-gesture-handler';
-import { APP_COLORS } from 'app/theme';
 
 const ScrollView = Animated.createAnimatedComponent(KeyboardAwareScrollView);
 
@@ -65,7 +63,7 @@ export const Screen: FC<ScreenProps> = ({ ...props }) => {
           </UIView>
         )}
         {props.headerType === ScreenHeaderTypes.Default && (
-          <UIView paddingH-20={props.scroll || props.container === 0}>
+          <UIView paddingH={props.scroll || props.container === 0 ? 20 : 0}>
             <DefaultHeader {...props.headerProps} />
           </UIView>
         )}
@@ -81,22 +79,22 @@ export const Screen: FC<ScreenProps> = ({ ...props }) => {
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={[dynamicContentContainerStyles, props.scrollContainerStyles]}
               // bounces={!!props.refresh}
-              refreshControl={
-                props.refresh ? (
-                  <RefreshControl
-                    refreshing={props.refresh.isLoading}
-                    onRefresh={props.refresh.onRefresh}
-                    tintColor={Platform.select({
-                      ios: APP_COLORS.iris,
-                      android: APP_COLORS.iris,
-                    })}
-                    colors={Platform.select({
-                      ios: [APP_COLORS.iris],
-                      android: [APP_COLORS.iris],
-                    })}
-                  />
-                ) : undefined
-              }
+              // refreshControl={
+              //   props.refresh ? (
+              //     <RefreshControl
+              //       refreshing={props.refresh.isLoading}
+              //       onRefresh={props.refresh.onRefresh}
+              //       tintColor={Platform.select({
+              //         ios: APP_COLORS.iris,
+              //         android: APP_COLORS.iris,
+              //       })}
+              //       colors={Platform.select({
+              //         ios: [APP_COLORS.iris],
+              //         android: [APP_COLORS.iris],
+              //       })}
+              //     />
+              //   ) : undefined
+              // }
               keyboardDismissMode={'interactive'}
               keyboardShouldPersistTaps={'handled'}
             >

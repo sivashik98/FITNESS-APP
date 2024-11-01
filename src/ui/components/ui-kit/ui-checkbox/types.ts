@@ -1,6 +1,8 @@
 import { ReactNode } from 'react';
-import { UIViewProps } from 'components/ui-kit/ui-view/types';
 import { CheckboxProps, CheckboxEvent } from 'expo-checkbox';
+
+import { Spacings } from 'tools/hooks/use-spacings/types';
+import { UIViewProps } from 'ui/components/ui-kit/ui-view/types';
 
 export type UICheckboxProps = {
   Label?: ReactNode;
@@ -8,4 +10,5 @@ export type UICheckboxProps = {
   onValueChange: (value: boolean) => void;
   checkboxProps?: CheckboxProps;
   errorMessage?: string;
-} & UIViewProps;
+} & UIViewProps &
+  Spacings;

@@ -13,13 +13,13 @@ export const useHybridAuthForm = () => {
   const emailController = useForm<HybridAuthEmailFormFields>({
     resolver: HYBRID_AUTH_EMAIL_VALIDATION,
     defaultValues: { email: '' },
-    mode: 'onChange',
+    mode: 'onSubmit',
     reValidateMode: 'onChange',
   });
   const phoneController = useForm<HybridAuthPhoneFormFields>({
     resolver: HYBRID_AUTH_PHONE_VALIDATION,
     defaultValues: { phone: '' },
-    mode: 'onChange',
+    mode: 'onSubmit',
     reValidateMode: 'onChange',
   });
 

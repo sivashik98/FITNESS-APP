@@ -1,37 +1,38 @@
-import { SegmentedControl } from 'react-native-ui-lib';
-import { Platform } from 'react-native';
 import { FC } from 'react';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
+import SegmentedControl from '@react-native-segmented-control/segmented-control';
 
 import { APP_FONTS } from 'app/theme/fonts';
 import { UISegmentedControlProps } from 'ui/components/ui-kit/ui-segmented-control/types';
+import { useSpacings } from 'tools/hooks/use-spacings/use-spacings';
 
 export const UISegmentedControl: FC<UISegmentedControlProps> = ({ ...props }) => {
   const { styles, theme } = useStyles(stylesheet);
+  const { margin, padding } = useSpacings(props);
+
   return (
     <SegmentedControl
-      borderRadius={Platform.select({ ios: 8, android: 8 })}
-      backgroundColor={theme.colors.segmentControl.regular.bg}
-      outlineWidth={2}
-      style={{ borderWidth: 0 }}
-      outlineColor={theme.colors.segmentControl.regular.bg}
-      activeBackgroundColor={theme.colors.segmentControl.regular.activeBg}
-      inactiveColor={theme.colors.segmentControl.regular.text}
-      activeColor={theme.colors.segmentControl.regular.text}
-      segmentLabelStyle={styles.labelStyle}
-      segmentsStyle={styles.segmentsStyle}
+      backgroundColor={theme.colors.segmentControl.bg}
+      tabStyle={styles.tabStyle}
+      style={[styles.container, margin, padding]}
+      fontStyle={styles.fontStyle}
       {...props}
     />
   );
 };
 
-const stylesheet = createStyleSheet({
-  segmentsStyle: {
-    flex: 1,
-    height: 50,
+const stylesheet = createStyleSheet((theme) => ({
+  container: {
+    height: 45,
+    padding: 4,
+    color: theme.colors.segmentControl.text,
   },
-  labelStyle: {
+  fontStyle: {
     ...APP_FONTS.p3M,
-    fontWeight: '500',
+    color: theme.colors.segmentControl.text,
   },
-});
+  tabStyle: {
+    // backgroundColor: theme.colors.segmentControl.regular.activeBg,
+    padding: 10,
+  },
+}));

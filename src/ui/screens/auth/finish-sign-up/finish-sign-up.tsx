@@ -1,15 +1,15 @@
 import { FC } from 'react';
 import Carousel from 'react-native-reanimated-carousel';
 
-import { UIButton, UIProgressBar, UIView } from 'ui/components/ui-kit';
-import { Screen, SvgWrap } from 'ui/components';
-import { SimpleLogoSvg } from 'svg/simple-logo';
+import { UIButton, UIView } from 'ui/components/ui-kit';
+import { Screen } from 'ui/components';
 
 import { DimensionsService } from 'tools/services';
 import { useFinishSignUpAdapter } from 'bl-modules/auth/finish-sign-up';
 import { STEPS } from 'bl-modules/auth/finish-sign-up/adapters/constants';
 import { FinishSignUpStepProps } from 'ui/screens/auth/finish-sign-up/components/types';
 import { ButtonTypes } from 'ui/components/ui-kit/ui-button/types';
+import { Header } from 'ui/screens/auth/finish-sign-up/components';
 
 type ItemProps = {
   item: FC<FinishSignUpStepProps>;
@@ -17,17 +17,17 @@ type ItemProps = {
 };
 
 const renderItem =
-  ({ localState, form, handlers }: FinishSignUpStepProps) =>
+  ({ form, onChangeGender, activeGender }: FinishSignUpStepProps) =>
   ({ item: Step, index }: ItemProps) => {
     return (
-      <UIView marginH-20 key={index}>
-        <Step localState={localState} form={form} handlers={handlers} />
+      <UIView key={index} marginH={20}>
+        <Step form={form} onChangeGender={onChangeGender} activeGender={activeGender} />
       </UIView>
     );
   };
 
 export const FinishSignUpScreen = () => {
-  const { variables, localState, form, handlers } = useFinishSignUpAdapter();
+  const { variables, form, handlers } = useFinishSignUpAdapter();
 
   return (
     <Screen
@@ -35,20 +35,17 @@ export const FinishSignUpScreen = () => {
       container={0}
       content={
         <>
-          <UIView gap-30 paddingH-20>
-            <SvgWrap Icon={SimpleLogoSvg} viewProps={{ style: { alignItems: 'center' } }} />
-            <UIProgressBar progress={localState.progress} />
-          </UIView>
+          <Header progress={variables.progress} />
           <Carousel
-            ref={localState.carouselRef}
+            ref={variables.carouselRef}
             data={STEPS}
             height={600}
             width={DimensionsService.screen.width}
-            renderItem={renderItem({ localState, form, handlers })}
+            renderItem={renderItem({ form, onChangeGender: handlers.onChangeGender, activeGender: variables.activeGender })}
             style={{ marginTop: 32 }}
             loop={false}
             enabled={false}
-            onSnapToItem={localState.onChangeStep}
+            onSnapToItem={handlers.onChangeStep}
           />
         </>
       }
@@ -57,9 +54,9 @@ export const FinishSignUpScreen = () => {
           <UIButton
             type={ButtonTypes.filled}
             title={variables.isLastStep ? 'Завершить регистрацию' : 'Продолжить'}
-            onPress={variables.stepHandlers[localState.step]}
+            onPress={handlers.stepHandlers[variables.step]}
           />
-          {!variables.isFirstStep && <UIButton type={ButtonTypes.texted} title={'Назад'} onPress={localState.goPrevStep} />}
+          {!variables.isFirstStep && <UIButton type={ButtonTypes.texted} title={'Назад'} onPress={handlers.goPrevStep} />}
         </>
       }
     />

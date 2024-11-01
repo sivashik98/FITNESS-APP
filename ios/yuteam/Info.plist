@@ -48,6 +48,8 @@
     </array>
     <key>LSRequiresIPhoneOS</key>
     <true/>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
     <key>NSAppTransportSecurity</key>
     <dict>
       <key>NSAllowsArbitraryLoads</key>
@@ -57,11 +59,13 @@
     </dict>
     <key>UIAppFonts</key>
     <array>
-      <string>SF-Pro-Display-Bold.otf</string>
-      <string>SF-Pro-Display-Medium.otf</string>
-      <string>SF-Pro-Display-Regular.otf</string>
-      <string>SF-Pro-Display-Semibold.otf</string>
-      <string>SF-Pro-Display-Thin.otf</string>
+      <string>Manrope-Bold.ttf</string>
+      <string>Manrope-ExtraBold.ttf</string>
+      <string>Manrope-ExtraLight.ttf</string>
+      <string>Manrope-Light.ttf</string>
+      <string>Manrope-Medium.ttf</string>
+      <string>Manrope-Regular.ttf</string>
+      <string>Manrope-SemiBold.ttf</string>
     </array>
     <key>UILaunchStoryboardName</key>
     <string>SplashScreen</string>

@@ -1,3 +1,3 @@
-import { SegmentedControlItemProps } from 'react-native-ui-lib/src/components/segmentedControl/segment';
+import { SegmentedControlProps } from '@react-native-segmented-control/segmented-control';
 
-export const SEGMENTS: SegmentedControlItemProps[] = [{ label: 'email' }, { label: 'номер телефона' }];
+export const SEGMENTS: SegmentedControlProps['values'] = ['email', 'номер телефона'];

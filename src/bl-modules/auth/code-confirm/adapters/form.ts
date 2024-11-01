@@ -10,7 +10,7 @@ export const useCodeConfirmForm = () => {
   const controller = useForm<CodeConfirmFormFields>({
     resolver: CODE_CONFIRM_VALIDATION,
     defaultValues: { code: '' },
-    mode: 'onChange',
+    mode: 'onSubmit',
     reValidateMode: 'onChange',
   });
 

@@ -2,19 +2,20 @@ import { useHybridAuthHandlers } from 'bl-modules/auth/hybrid-auth/adapters/hand
 import { useHybridAuthForm } from 'bl-modules/auth/hybrid-auth/adapters/form';
 import { useHybridAuthLocalState } from 'bl-modules/auth/hybrid-auth/adapters/local-state';
 import { useHybridAuthVariables } from 'bl-modules/auth/hybrid-auth/adapters/variables';
+import { useHybridAuthRtkq } from 'bl-modules/auth/hybrid-auth/adapters/rtkq';
 
 type HybridAuthAdapterReturnValues = {
-  localState: ReturnType<typeof useHybridAuthLocalState>;
   handlers: ReturnType<typeof useHybridAuthHandlers>;
   form: ReturnType<typeof useHybridAuthForm>;
   variables: ReturnType<typeof useHybridAuthVariables>;
 };
 
 export const useHybridAuthAdapter = (): HybridAuthAdapterReturnValues => {
-  const form = useHybridAuthForm();
+  const rtkq = useHybridAuthRtkq();
   const localState = useHybridAuthLocalState();
-  const handlers = useHybridAuthHandlers(localState);
-  const variables = useHybridAuthVariables(form, localState);
+  const form = useHybridAuthForm();
+  const handlers = useHybridAuthHandlers(localState, rtkq);
+  const variables = useHybridAuthVariables(localState, rtkq, form);
 
-  return { localState, handlers, form, variables };
+  return { variables, handlers, form };
 };

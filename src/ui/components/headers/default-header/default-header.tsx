@@ -1,30 +1,29 @@
 import React, { FC } from 'react';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
-import { TouchableOpacity } from 'react-native-ui-lib';
 
-import { SvgWrap, UIText, UIView } from 'ui/components';
+import { SvgContainer, UIText, UIView } from 'ui/components';
 import { ChevronIconSvg } from 'svg/icons/chevron-icon';
 
 import { NavigationService } from 'tools/services';
 import { DefaultHeaderProps } from 'ui/components/headers/default-header/types';
+import { useSpacings } from 'tools/hooks/use-spacings/use-spacings';
 
-export const DefaultHeader: FC<DefaultHeaderProps> = ({ canGoBack = true, title, RightIcon }) => {
-  const { styles } = useStyles(stylesheet);
+export const DefaultHeader: FC<DefaultHeaderProps> = ({ canGoBack = true, title, RightIcon, CenterIcon, ...props }) => {
+  const { styles, theme } = useStyles(stylesheet);
+  const { margin, padding } = useSpacings(props);
 
   return (
-    <UIView style={styles.container}>
-      <TouchableOpacity onPress={NavigationService.goBack} style={styles.backButton}>
-        {canGoBack && <SvgWrap Icon={ChevronIconSvg} />}
-      </TouchableOpacity>
-      <UIView style={styles.titleContainer}>
-        <UIText p1B>{title}</UIText>
+    <UIView style={[styles.container, margin, padding]}>
+      <UIView onPress={NavigationService.goBack} style={styles.backButton}>
+        {canGoBack && <SvgContainer Icon={ChevronIconSvg} iconProps={{ color: theme.colors.defaultHeader.icon }} />}
       </UIView>
+      <UIView style={styles.titleContainer}>{CenterIcon ? <CenterIcon /> : <UIText font={'p1B'}>{title}</UIText>}</UIView>
       <UIView style={styles.rightComponentContainer}>{RightIcon && <RightIcon />}</UIView>
     </UIView>
   );
 };
 
-const stylesheet = createStyleSheet((theme, rt) => ({
+const stylesheet = createStyleSheet(() => ({
   container: {
     paddingVertical: 12,
     flexDirection: 'row',

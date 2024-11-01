@@ -1,9 +1,8 @@
 import { UIText, UIView } from 'ui/components/ui-kit';
-import { MenuItemsList, Screen, SvgWrap } from 'ui/components';
-import { LogoSvg } from 'svg/logo';
+import { MenuItemsList, Screen, SvgContainer } from 'ui/components';
 import { ScreenHeaderTypes } from 'ui/components/screen/types';
-import { APP_COLORS } from 'app/theme';
 import { TextTypes } from 'ui/components/ui-kit/ui-text/types';
+import { MiniLogoSvg } from 'svg/mini-logo';
 
 export const AboutAppScreen = ({}) => {
   return (
@@ -11,9 +10,9 @@ export const AboutAppScreen = ({}) => {
       headerType={ScreenHeaderTypes.Default}
       headerProps={{ title: 'О приложении' }}
       content={
-        <UIView flex spread marginT-20>
-          <UIView gap-20>
-            <SvgWrap Icon={LogoSvg} iconProps={{ color: APP_COLORS.primaryBlack, size: 40 }} viewProps={{ style: { alignItems: 'center' } }} />
+        <UIView flex={1} jc={'space-between'} marginT={20}>
+          <UIView gap={20}>
+            <SvgContainer Icon={MiniLogoSvg} iconProps={{ size: 70 }} ai={'center'} />
             <MenuItemsList
               items={[
                 {
@@ -31,14 +30,14 @@ export const AboutAppScreen = ({}) => {
             />
           </UIView>
 
-          <UIView center gap-6>
-            <UIText p1R type={TextTypes.secondary}>
+          <UIView jc={'center'} ai={'center'} gap={6}>
+            <UIText font={'p1R'} type={TextTypes.secondary}>
               Версия 2.0.5 от 18 января 2025 г.
             </UIText>
-            <UIText p3R type={TextTypes.secondary}>
+            <UIText font={'p3R'} type={TextTypes.secondary}>
               Copyright © 2024 YU TEAM
             </UIText>
-            <UIText p3R marginT-10 type={TextTypes.secondary} style={{ opacity: 0.5 }}>
+            <UIText font={'p3R'} marginT={10} type={TextTypes.secondary}>
               Разработка приложения JAM IT
             </UIText>
           </UIView>

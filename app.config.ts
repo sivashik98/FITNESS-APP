@@ -23,6 +23,7 @@ const config: ExpoConfig = {
     bitcode: false,
     infoPlist: {
       LSApplicationQueriesSchemes: ['tg'],
+      NSAllowsArbitraryLoads: true,
     },
     config: {
       usesNonExemptEncryption: false,
@@ -33,7 +34,7 @@ const config: ExpoConfig = {
     package: 'com.sivashik98.yuteam',
     // permissions: ['android.permission.ACCESS_NETWORK_STATE', 'android.permission.INTERNET', 'android.permission.SYSTEM_ALERT_WINDOW'],
     // blockedPermissions: [],
-    softwareKeyboardLayoutMode: 'pan',
+    softwareKeyboardLayoutMode: 'resize',
     allowBackup: true,
     adaptiveIcon: {
       foregroundImage: './assets/adaptive-icon.png',
@@ -47,6 +48,7 @@ const config: ExpoConfig = {
         android: {
           networkInspector: true,
           usesCleartextTraffic: true,
+          minSdkVersion: 24,
         },
         ios: {
           useFrameworks: 'static',
@@ -57,11 +59,13 @@ const config: ExpoConfig = {
       'expo-font',
       {
         fonts: [
-          './assets/fonts/sf-pro/SF-Pro-Display-Bold.otf',
-          './assets/fonts/sf-pro/SF-Pro-Display-Medium.otf',
-          './assets/fonts/sf-pro/SF-Pro-Display-Regular.otf',
-          './assets/fonts/sf-pro/SF-Pro-Display-Semibold.otf',
-          './assets/fonts/sf-pro/SF-Pro-Display-Thin.otf',
+          './assets/fonts/manrope/Manrope-Bold.ttf',
+          './assets/fonts/manrope/Manrope-ExtraBold.ttf',
+          './assets/fonts/manrope/Manrope-ExtraLight.ttf',
+          './assets/fonts/manrope/Manrope-Light.ttf',
+          './assets/fonts/manrope/Manrope-Medium.ttf',
+          './assets/fonts/manrope/Manrope-Regular.ttf',
+          './assets/fonts/manrope/Manrope-SemiBold.ttf',
         ],
       },
     ],

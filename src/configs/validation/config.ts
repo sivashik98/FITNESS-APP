@@ -26,4 +26,5 @@ export const SHAPES = {
   surname: string().required(CASES.required).min(4, CASES.min(4)).max(20, CASES.max(20)),
   patronymic: string().required(CASES.required).min(4, CASES.min(4)).max(20, CASES.max(20)),
   checkbox: bool().oneOf([true], CASES.rulesAcceptRequired).required(CASES.required),
+  birthDate: string().required(CASES.required),
 };

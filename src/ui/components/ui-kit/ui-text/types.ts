@@ -1,14 +1,19 @@
-import { TextProps } from 'react-native-ui-lib';
+import { TextProps } from 'react-native';
 import { ReactNode } from 'react';
 
 import { APP_FONTS } from 'app/theme/fonts';
+import { Spacings } from 'tools/hooks/use-spacings/types';
+import { APP_COLORS } from 'app/theme';
 
 export type UITextProps = {
   type?: TextTypes;
+  font: keyof typeof APP_FONTS;
+  color?: keyof typeof APP_COLORS;
   children: ReactNode;
-} & {
-  [key in keyof typeof APP_FONTS]?: boolean;
-} & TextProps;
+  underline?: boolean;
+  center?: boolean;
+} & TextProps &
+  Spacings;
 
 export enum TextTypes {
   primary = 'primary',

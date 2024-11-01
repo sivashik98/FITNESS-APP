@@ -3,7 +3,7 @@ import { object } from 'yup';
 
 import { SHAPES } from './config';
 import { CodeConfirmFormFields } from 'bl-modules/auth/code-confirm/adapters/form';
-import { FullNameFormFields } from 'bl-modules/auth/finish-sign-up/adapters/form';
+import { BirthDateFormFields, FullNameFormFields } from 'bl-modules/auth/finish-sign-up/adapters/form';
 import { AccountFormFields } from 'bl-modules/profile/account/adapters/form';
 import { HybridAuthEmailFormFields, HybridAuthPhoneFormFields } from 'bl-modules/auth/hybrid-auth/adapters/form';
 
@@ -35,6 +35,12 @@ export const FULL_NAME_VALIDATION = yupResolver<FullNameFormFields>(
   })
 );
 
+export const BIRTH_DATE_VALIDATION = yupResolver<BirthDateFormFields>(
+  object({
+    birthDate: SHAPES.birthDate,
+  })
+);
+
 export const ACCOUNT_VALIDATION = yupResolver<AccountFormFields>(
   object({
     email: SHAPES.email,
@@ -42,5 +48,6 @@ export const ACCOUNT_VALIDATION = yupResolver<AccountFormFields>(
     name: SHAPES.name,
     surname: SHAPES.surname,
     patronymic: SHAPES.patronymic,
+    birthDate: SHAPES.birthDate,
   })
 );

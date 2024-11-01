@@ -6,25 +6,27 @@ import { UIText, UIView } from 'ui/components';
 
 import { UICheckboxProps } from 'ui/components/ui-kit/ui-checkbox/types';
 import { TextTypes } from 'ui/components/ui-kit/ui-text/types';
+import { useSpacings } from 'tools/hooks/use-spacings/use-spacings';
 
 export const UICheckbox: FC<UICheckboxProps> = ({ value, onValueChange, Label, errorMessage, ...props }) => {
   const { styles, theme } = useStyles(stylesheet);
+  const { padding, margin } = useSpacings(props);
 
   return (
     <>
-      <UIView row {...props}>
+      <UIView direction={'row'} style={[padding, margin]}>
         <Checkbox
           value={value}
           onValueChange={onValueChange}
           {...props.checkboxProps}
           style={styles.checkbox}
-          color={value ? theme.colors.checkbox.primary.bg : undefined}
+          color={value ? theme.colors.checkbox.bg : undefined}
         />
         {Label}
       </UIView>
 
       {errorMessage ? (
-        <UIText p1B type={TextTypes.error}>
+        <UIText font={'p2R'} type={TextTypes.error}>
           {errorMessage}
         </UIText>
       ) : null}
@@ -37,6 +39,6 @@ const stylesheet = createStyleSheet((theme) => ({
     marginRight: 12,
     borderRadius: 4,
     borderWidth: 1.2,
-    borderColor: theme.colors.checkbox.primary.border,
+    borderColor: theme.colors.checkbox.border,
   },
 }));

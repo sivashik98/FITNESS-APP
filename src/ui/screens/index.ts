@@ -13,3 +13,6 @@ export { DocumentsScreen } from './profile/documents/documents';
 
 // app
 export { FeedScreen } from './feed/feed';
+export { PrivacyPolicyScreen } from './privacy-policy/privacy-policy';
+export { WorkoutScreen } from './workout/workout';
+export { ArticlesScreen } from './articles/articles';

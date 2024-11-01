@@ -1,9 +1,9 @@
-import { useFinishSignUpLocalState } from 'bl-modules/auth/finish-sign-up/adapters/local-state';
 import { useFinishSignUpForm } from 'bl-modules/auth/finish-sign-up/adapters/form';
 import { useFinishSignUpHandlers } from 'bl-modules/auth/finish-sign-up/adapters/handlers';
+import { useFinishSignUpVariables } from 'bl-modules/auth/finish-sign-up/adapters/variables';
 
 export type FinishSignUpStepProps = {
-  localState: ReturnType<typeof useFinishSignUpLocalState>;
   form: ReturnType<typeof useFinishSignUpForm>;
-  handlers: ReturnType<typeof useFinishSignUpHandlers>;
+  activeGender: ReturnType<typeof useFinishSignUpVariables>['activeGender'];
+  onChangeGender: ReturnType<typeof useFinishSignUpHandlers>['onChangeGender'];
 };
