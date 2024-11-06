@@ -9,7 +9,16 @@ import { APP_FONTS } from 'app/theme';
 export const ToastSuccess = (props: ToastProps) => {
   const { styles } = useStyles(stylesheet);
 
-  return <BaseToast {...props} style={styles.toast} renderTrailingIcon={() => <CheckInCircleSvg size={20} />} text1Style={styles.text1Style} />;
+  return (
+    <BaseToast
+      {...props}
+      style={styles.toast}
+      renderTrailingIcon={() => <CheckInCircleSvg size={20} />}
+      text1Style={styles.text1Style}
+      text1Props={{ allowFontScaling: false }}
+      text2Props={{ allowFontScaling: false }}
+    />
+  );
 };
 
 const stylesheet = createStyleSheet((theme) => ({
