@@ -5,4 +5,4 @@ import { UICheckboxProps } from 'ui/components/ui-kit/ui-checkbox/types';
 export type FormCheckboxProps = {
   control: Control<any>;
   name: string;
-} & Partial<UICheckboxProps>;
+} & Omit<UICheckboxProps, 'value' | 'errorMessage' | 'onValueChange'>;

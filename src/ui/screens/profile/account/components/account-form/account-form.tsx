@@ -2,11 +2,23 @@ import { FC } from 'react';
 import { Image } from 'expo-image';
 import { StyleSheet } from 'react-native';
 
-import { FormDateField, FormField, GenderPicker, MenuItemsList, UIText, UIView } from 'ui/components';
+import { FormField, GenderPicker, MenuItemsList, UIText, UIView, FormDatePicker } from 'ui/components';
+import { SettingItem } from 'ui/screens/profile/account/components';
+import { PhoneIconSvg } from 'svg/icons/phone-icon';
+import { EnvelopeIconSvg } from 'svg/icons/envelope-icon';
 
 import { AccountFormProps } from 'ui/screens/profile/account/components/account-form/types';
 
-export const AccountForm: FC<AccountFormProps> = ({ form, activeGender, onChangeGender }) => {
+export const AccountForm: FC<AccountFormProps> = ({
+  form,
+  activeGender,
+  onChangeGender,
+  logout,
+  onChangeEmail,
+  onChangePhone,
+  formattedPhone,
+  email,
+}) => {
   return (
     <UIView marginT={20} gap={30}>
       <UIView ai={'center'}>
@@ -22,24 +34,13 @@ export const AccountForm: FC<AccountFormProps> = ({ form, activeGender, onChange
           leadingAccessory={<UIText font={'p2B'}>Отчество</UIText>}
         />
       </UIView>
-      <UIView gap={12}>
-        <FormField control={form.account.control} name={'phone'} placeholder={'Номер'} leadingAccessory={<UIText font={'p2B'}>Номер</UIText>} />
-        <FormField
-          control={form.account.control}
-          name={'email'}
-          placeholder={'Почта'}
-          leadingAccessory={<UIText font={'p2B'}>Почта</UIText>}
-          bottomHint={'На почту поступит одноразовый пароль для подтверждения изменений'}
-        />
+      <UIView gap={20}>
+        <SettingItem placeholder={'Добавить телефон'} onPress={onChangePhone} text={formattedPhone} Icon={PhoneIconSvg} />
+        <SettingItem placeholder={'Добавить почту'} onPress={onChangeEmail} text={email} Icon={EnvelopeIconSvg} />
       </UIView>
       <GenderPicker active={activeGender} onPress={onChangeGender} />
-      <FormDateField control={form.account.control} name={'birthDate'} leadingAccessory={<UIText font={'p2B'}>Дата</UIText>} />
-      <MenuItemsList
-        items={[
-          { title: 'Выйти из аккаунта', onPress: () => alert('Вы вышли из аккаунта') },
-          { title: 'Удалить аккаунт', onPress: () => alert('Вы удалили аккаунт') },
-        ]}
-      />
+      <FormDatePicker label={'Дата рождения'} control={form.account.control} name={'birthday'} />
+      <MenuItemsList items={[{ title: 'Выйти из аккаунта', onPress: logout }, { title: 'Удалить аккаунт' }]} />
     </UIView>
   );
 };

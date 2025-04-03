@@ -19,7 +19,18 @@ export const Footer = () => {
       style={styles.container}
     >
       <UIText font={'h1'}>Начните свой путь к здоровому образу жизни с нами</UIText>
-      <UIButton type={ButtonTypes.filled} title={'Погнали!'} LeftIcon={StarsIconSvg} onPress={() => NavigationService.navigate('HybridAuthScreen')} />
+      <UIButton
+        type={ButtonTypes.filled}
+        title={'Погнали!'}
+        LeftIcon={StarsIconSvg}
+        onPress={() =>
+          NavigationService.navigate('HybridAuthScreen', {
+            title: 'Укажите email или номер телефона',
+            tab: { type: 'email', index: 0 },
+            type: 'auth',
+          })
+        }
+      />
       <UIView ai={'center'}>
         <UIText font={'p3R'} type={TextTypes.secondary}>
           Нажимая «Погнали!», вы принимаете

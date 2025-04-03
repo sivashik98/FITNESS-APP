@@ -2,6 +2,16 @@ import { APP_COLORS, APP_GRADIENTS } from 'app/theme/colors';
 
 export const LIGHT_THEME = {
   colors: {
+    weightPicker: {
+      border: APP_COLORS.grayishBlue,
+      error: APP_COLORS.darkError,
+      modalBg: APP_COLORS.white,
+      modalHeaderBg: APP_COLORS.veryLightGray,
+    },
+    datePicker: {
+      border: APP_COLORS.grayishBlue,
+      error: APP_COLORS.darkError,
+    },
     toastSuccess: {
       bg: APP_COLORS.success,
       text: APP_COLORS.primaryWhite,
@@ -83,6 +93,20 @@ export const LIGHT_THEME = {
         disabled: APP_COLORS.transparentShadowLight,
         textDisabled: APP_COLORS.primaryWhite,
       },
+      smallPrimary: {
+        bg: APP_COLORS.black,
+        text: APP_COLORS.white,
+        shadow: APP_COLORS.transparent,
+        disabled: APP_COLORS.transparentShadowLight,
+        textDisabled: APP_COLORS.primaryWhite,
+      },
+      smallSecondary: {
+        bg: APP_COLORS.white,
+        text: APP_COLORS.black,
+        shadow: APP_COLORS.transparentShadowLight,
+        disabled: APP_COLORS.transparentShadowLight,
+        textDisabled: APP_COLORS.primaryWhite,
+      },
     },
     text: {
       primary: {
@@ -96,6 +120,9 @@ export const LIGHT_THEME = {
       },
       accent: {
         text: APP_COLORS.darkIris,
+      },
+      link: {
+        text: APP_COLORS.blue,
       },
     },
     genderPicker: {
@@ -125,6 +152,16 @@ export const LIGHT_THEME = {
 
 export const DARK_THEME = {
   colors: {
+    weightPicker: {
+      border: APP_COLORS.grayishBlue,
+      error: APP_COLORS.darkError,
+      modalBg: APP_COLORS.darkGray,
+      modalHeaderBg: APP_COLORS.darkGrayishBlue,
+    },
+    datePicker: {
+      border: APP_COLORS.grayishBlue,
+      error: APP_COLORS.error,
+    },
     toastSuccess: {
       bg: APP_COLORS.darkSuccess,
       text: APP_COLORS.white,
@@ -206,6 +243,20 @@ export const DARK_THEME = {
         disabled: APP_COLORS.primaryBlack,
         textDisabled: APP_COLORS.black,
       },
+      smallPrimary: {
+        bg: APP_COLORS.black,
+        text: APP_COLORS.white,
+        shadow: APP_COLORS.transparent,
+        disabled: APP_COLORS.primaryBlack,
+        textDisabled: APP_COLORS.black,
+      },
+      smallSecondary: {
+        bg: APP_COLORS.grayishBlue,
+        text: APP_COLORS.white,
+        shadow: APP_COLORS.transparentShadowLight,
+        disabled: APP_COLORS.primaryBlack,
+        textDisabled: APP_COLORS.black,
+      },
     },
     text: {
       primary: {
@@ -219,6 +270,9 @@ export const DARK_THEME = {
       },
       accent: {
         text: APP_COLORS.morningIris,
+      },
+      link: {
+        text: APP_COLORS.blue,
       },
     },
     genderPicker: {

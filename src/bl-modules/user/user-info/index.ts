@@ -1,1 +1,1 @@
-export { userInfoActions, userInfoReducer } from './slice/user-info.slice';
+export { useUserInfoAdapter } from './adapters/adapter';

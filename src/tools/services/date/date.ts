@@ -1,5 +1,6 @@
 import {
   addMinutes,
+  DateArg,
   differenceInSeconds,
   DifferenceInSecondsOptions,
   format,
@@ -7,8 +8,10 @@ import {
   isBefore,
   isToday,
   isYesterday,
+  parse,
   parseISO,
   ParseISOOptions,
+  ParseOptions,
 } from 'date-fns';
 
 export const DateService = {
@@ -46,4 +49,6 @@ export const DateService = {
   isYesterday: (date: string | number | Date): boolean => isYesterday(date),
   getDifferenceInSeconds: (dateLeft: Date | number | string, dateRight: Date | number | string, options?: DifferenceInSecondsOptions): number =>
     differenceInSeconds(dateLeft, dateRight, options),
+  parse: (dateStr: string, formatStr: string, referenceDate: DateArg<any>, options?: ParseOptions<any>): any =>
+    parse(dateStr, formatStr, referenceDate, options),
 };

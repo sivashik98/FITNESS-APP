@@ -16,3 +16,8 @@ export { FeedScreen } from './feed/feed';
 export { PrivacyPolicyScreen } from './privacy-policy/privacy-policy';
 export { WorkoutScreen } from './workout/workout';
 export { ArticlesScreen } from './articles/articles';
+
+// goal
+export { GoalCreationPreviewScreen } from './goal/goal-creation-preview/goal-creation-preview';
+export { GoalCreationStepsScreen } from 'ui/screens/goal/goal-creation-steps/goal-creation-steps';
+export { GoalCreationFinishScreen } from 'ui/screens/goal/goal-creation-finish/goal-creation-finish';

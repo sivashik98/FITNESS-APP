@@ -1,1 +1,1 @@
-export { useSignUpAdapter } from './adapters/adapter';
+export { useHybridAuthAdapter } from './adapters/adapter';

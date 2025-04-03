@@ -24,7 +24,7 @@ export const MenuItemsList: FC<MenuItemsListProps> = ({ items, ...props }) => {
             style={[styles.item, isFirst && styles['item-first'], isLast && styles['item-last']]}
           >
             <UIText font={'p2M'}>{title}</UIText>
-            {RightComponent && <RightComponent />}
+            {RightComponent}
           </TouchableOpacity>
         );
       })}

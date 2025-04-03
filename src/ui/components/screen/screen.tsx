@@ -17,8 +17,8 @@ export const Screen: FC<ScreenProps> = ({ ...props }) => {
   const insets = useSafeAreaInsets();
   const { onLayout, layout, refLayout } = useGetLayout();
   const topSpace = useMemo(
-    () => (props.topSpace ? props.topSpace : props.removeTopSpace ? 0 : insets.top),
-    [insets.top, props.removeTopSpace, props.topSpace]
+    () => (props.topSpace ? props.topSpace : props.removeTopSpace ? 0 : Platform.OS === 'android' ? 60 : insets.top),
+    [insets.top, props.removeTopSpace, props.topSpace],
   );
   const dynamicScreenStyles = useMemo(
     () =>
@@ -29,7 +29,7 @@ export const Screen: FC<ScreenProps> = ({ ...props }) => {
             paddingBottom: props.removeBottomSpace ? 0 : props.bottomSpace ? props.bottomSpace : insets.bottom || 15,
             paddingHorizontal: typeof props.container === 'number' ? props.container : 20,
           },
-    [insets.bottom, props.container, props.removeBottomSpace, props.scroll, topSpace]
+    [insets.bottom, props.container, props.removeBottomSpace, props.scroll, topSpace],
   );
   const dynamicContentContainerStyles = useMemo(
     () => ({
@@ -37,7 +37,7 @@ export const Screen: FC<ScreenProps> = ({ ...props }) => {
       paddingBottom: props.removeBottomSpace ? 0 : props.bottomSpace ? props.bottomSpace : insets.bottom || 15,
       paddingHorizontal: typeof props.container === 'number' ? props.container : 20,
     }),
-    [insets.bottom, props.container, props.bottomSpace, props.removeBottomSpace, layout?.height]
+    [insets.bottom, props.container, props.bottomSpace, props.removeBottomSpace, layout?.height],
   );
   const dynamicFooterStyles = useMemo(
     () => ({
@@ -45,7 +45,7 @@ export const Screen: FC<ScreenProps> = ({ ...props }) => {
       paddingTop: 10,
       paddingHorizontal: typeof props.footerContainer === 'number' ? props.footerContainer : 20,
     }),
-    [insets.bottom, props.footerContainer]
+    [insets.bottom, props.footerContainer],
   );
 
   // useEffect(() => {
@@ -67,7 +67,10 @@ export const Screen: FC<ScreenProps> = ({ ...props }) => {
             <DefaultHeader {...props.headerProps} />
           </UIView>
         )}
-        {props.scroll ? (
+
+        {props.shouldShowSkeleton ? (
+          <UIView animated>{props.skeleton}</UIView>
+        ) : props.scroll ? (
           <>
             <ScrollView
               onScroll={props.scrollHandler}
@@ -77,7 +80,7 @@ export const Screen: FC<ScreenProps> = ({ ...props }) => {
               overScrollMode={'never'}
               showsVerticalScrollIndicator={false}
               showsHorizontalScrollIndicator={false}
-              contentContainerStyle={[dynamicContentContainerStyles, props.scrollContainerStyles]}
+              contentContainerStyle={[props.scrollContainerStyles, dynamicContentContainerStyles]}
               // bounces={!!props.refresh}
               // refreshControl={
               //   props.refresh ? (

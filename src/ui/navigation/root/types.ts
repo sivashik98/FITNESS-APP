@@ -1,9 +1,10 @@
 import { BottomTabsNavigationParams } from 'ui/navigation/bottom-tabs/types';
+import { AuthTabs } from 'bl-modules/auth/hybrid-auth/adapters/local-state';
 
 export type RootNavigationParams = {
   WelcomeScreen: undefined;
-  HybridAuthScreen: undefined;
-  CodeConfirmScreen: { authMethod: string };
+  HybridAuthScreen: { tab: AuthTabs; shouldHideSegmentControl?: boolean; title: string; canGoBack?: boolean; type: 'edit' | 'auth' };
+  CodeConfirmScreen: { method: AuthTabs['type']; data: string; type: 'edit' | 'auth' };
   FinishSignUpScreen: undefined;
   BottomTabsNavigation: { screen?: keyof BottomTabsNavigationParams };
   ProfileScreen: undefined;
@@ -15,4 +16,7 @@ export type RootNavigationParams = {
   PrivacyPolicyScreen: undefined;
   WorkoutScreen: undefined;
   ArticlesScreen: undefined;
+  GoalCreationPreviewScreen: undefined;
+  GoalCreationStepsScreen: undefined;
+  GoalCreationFinishScreen: { goal: string; onCreateGoal: () => void };
 };

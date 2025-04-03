@@ -9,7 +9,8 @@ export { MenuItemsList } from 'ui/components/menu-items-list/menu-items-list';
 export { UserHeader } from 'ui/components/headers/user-header/user-header';
 export { DefaultHeader } from 'ui/components/headers/default-header/default-header';
 export { FormCodeField } from 'ui/components/form/form-code-field/form-code-field';
-export { FormDateField } from 'ui/components/form/form-date-field/form-date-field';
+export { FormDatePicker } from 'ui/components/form/form-date-picker/form-date-picker';
+export { FormWeightPicker } from 'ui/components/form/form-weight-picker/form-weight-picker';
 
 export { UserWidget } from 'ui/components/widgets/user-widget/user-widget';
 export { WorkoutWidget } from 'ui/components/widgets/workout-widget/workout-widget';

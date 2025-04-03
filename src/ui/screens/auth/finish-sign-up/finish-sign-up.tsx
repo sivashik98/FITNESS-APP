@@ -3,13 +3,13 @@ import Carousel from 'react-native-reanimated-carousel';
 
 import { UIButton, UIView } from 'ui/components/ui-kit';
 import { Screen } from 'ui/components';
+import { Header } from 'ui/screens/auth/finish-sign-up/components';
 
 import { DimensionsService } from 'tools/services';
 import { useFinishSignUpAdapter } from 'bl-modules/auth/finish-sign-up';
 import { STEPS } from 'bl-modules/auth/finish-sign-up/adapters/constants';
 import { FinishSignUpStepProps } from 'ui/screens/auth/finish-sign-up/components/types';
 import { ButtonTypes } from 'ui/components/ui-kit/ui-button/types';
-import { Header } from 'ui/screens/auth/finish-sign-up/components';
 
 type ItemProps = {
   item: FC<FinishSignUpStepProps>;
@@ -35,7 +35,7 @@ export const FinishSignUpScreen = () => {
       container={0}
       content={
         <>
-          <Header progress={variables.progress} />
+          <Header progress={variables.progress} onPress={handlers.goPrevStep} shouldShowBackButton={!variables.isFirstStep} />
           <Carousel
             ref={variables.carouselRef}
             data={STEPS}
@@ -50,14 +50,12 @@ export const FinishSignUpScreen = () => {
         </>
       }
       footer={
-        <>
-          <UIButton
-            type={ButtonTypes.filled}
-            title={variables.isLastStep ? 'Завершить регистрацию' : 'Продолжить'}
-            onPress={handlers.stepHandlers[variables.step]}
-          />
-          {!variables.isFirstStep && <UIButton type={ButtonTypes.texted} title={'Назад'} onPress={handlers.goPrevStep} />}
-        </>
+        <UIButton
+          type={ButtonTypes.filled}
+          loading={variables.isLoadingRegister}
+          title={variables.isLastStep ? 'Завершить регистрацию' : 'Продолжить'}
+          onPress={handlers.stepHandlers[variables.step]}
+        />
       }
     />
   );

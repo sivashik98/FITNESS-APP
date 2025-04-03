@@ -7,3 +7,5 @@ export { UITextField } from './ui-text-field/ui-text-field';
 export { UIProgressBar } from './ui-progress-bar/ui-progress-bar';
 export { UISwitch } from './ui-switch/ui-switch';
 export { UICheckbox } from './ui-checkbox/ui-checkbox';
+export { UIDatePicker } from './ui-date-picker/ui-date-picker';
+export { UIWeightPicker } from './ui-weight-picker/ui-weight-picker';

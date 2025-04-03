@@ -14,8 +14,8 @@ export const ThirdStep: FC<FinishSignUpStepProps> = ({ form }) => (
       Вы всегда сможете изменить эту информацию в настройках приложения
     </UIText>
     <UIView gap={12}>
-      <FormField control={form.fullName.control} name={'name'} leadingAccessory={<UIText font={'p1B'}>Фамилия</UIText>} placeholder={'Имя'} />
-      <FormField control={form.fullName.control} name={'surname'} leadingAccessory={<UIText font={'p1B'}>Имя</UIText>} placeholder={'Фамилия'} />
+      <FormField control={form.fullName.control} name={'surname'} leadingAccessory={<UIText font={'p1B'}>Фамилия</UIText>} placeholder={'Фамилия'} />
+      <FormField control={form.fullName.control} name={'name'} leadingAccessory={<UIText font={'p1B'}>Имя</UIText>} placeholder={'Имя'} />
       <FormField
         control={form.fullName.control}
         name={'patronymic'}

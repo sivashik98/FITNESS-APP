@@ -15,8 +15,10 @@ export const ToastSuccess = (props: ToastProps) => {
       style={styles.toast}
       renderTrailingIcon={() => <CheckInCircleSvg size={20} />}
       text1Style={styles.text1Style}
+      text2Style={styles.text2Style}
       text1Props={{ allowFontScaling: false }}
       text2Props={{ allowFontScaling: false }}
+      text1NumberOfLines={2}
     />
   );
 };
@@ -34,7 +36,12 @@ const stylesheet = createStyleSheet((theme) => ({
     shadowOffset: { width: 0, height: 3 },
   },
   text1Style: {
-    ...APP_FONTS.p1B,
+    ...APP_FONTS.p2M,
+    color: theme.colors.toastSuccess.text,
+    textAlign: 'center',
+  },
+  text2Style: {
+    ...APP_FONTS.p3M,
     color: theme.colors.toastSuccess.text,
   },
 }));

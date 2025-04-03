@@ -2,6 +2,7 @@ import { UIText, UIView } from 'ui/components/ui-kit';
 import { Screen } from 'ui/components';
 
 import { ScreenHeaderTypes } from 'ui/components/screen/types';
+import { Platform } from 'react-native';
 
 const DATA = [
   {
@@ -26,12 +27,12 @@ export const PrivacyPolicyScreen = ({}) => {
   return (
     <Screen
       scroll
-      removeTopSpace
+      removeTopSpace={Platform.select({ ios: true, android: false })}
       headerType={ScreenHeaderTypes.Default}
       headerProps={{ title: 'Политика приватности' }}
       container={16}
       content={
-        <UIView gap={20}>
+        <UIView gap={20} marginT={20}>
           {DATA.map(({ title, text }, index) => (
             <UIView key={index} gap={10}>
               <UIText font={'h2'}>{title}</UIText>

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import Checkbox from 'expo-checkbox';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
+import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics';
 
 import { UIText, UIView } from 'ui/components';
 
@@ -12,12 +13,17 @@ export const UICheckbox: FC<UICheckboxProps> = ({ value, onValueChange, Label, e
   const { styles, theme } = useStyles(stylesheet);
   const { padding, margin } = useSpacings(props);
 
+  const onValueChangeWithImpact = async (value: boolean) => {
+    onValueChange?.(value);
+    await impactAsync(ImpactFeedbackStyle.Light);
+  };
+
   return (
     <>
-      <UIView direction={'row'} style={[padding, margin]}>
+      <UIView style={[padding, margin, styles.container]}>
         <Checkbox
           value={value}
-          onValueChange={onValueChange}
+          onValueChange={onValueChangeWithImpact}
           {...props.checkboxProps}
           style={styles.checkbox}
           color={value ? theme.colors.checkbox.bg : undefined}
@@ -35,6 +41,9 @@ export const UICheckbox: FC<UICheckboxProps> = ({ value, onValueChange, Label, e
 };
 
 const stylesheet = createStyleSheet((theme) => ({
+  container: {
+    flexDirection: 'row',
+  },
   checkbox: {
     marginRight: 12,
     borderRadius: 4,

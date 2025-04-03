@@ -13,5 +13,5 @@ export const FormCheckbox: FC<FormCheckboxProps> = ({ control, name, ...props })
     shouldUnregister: false,
   });
 
-  return <UICheckbox value={field.value} onValueChange={field.onChange} errorMessage={fieldState.error?.message} {...props} />;
+  return <UICheckbox {...props} value={field.value} onValueChange={field.onChange} errorMessage={fieldState.error?.message} />;
 };

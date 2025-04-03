@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { ReactElement } from 'react';
 
 export type MenuItemsListProps = {
   items: MenuItemList[];
@@ -6,6 +6,6 @@ export type MenuItemsListProps = {
 
 export type MenuItemList = {
   title: string;
-  RightComponent?: FC;
+  RightComponent?: ReactElement;
   onPress?: () => void;
 };

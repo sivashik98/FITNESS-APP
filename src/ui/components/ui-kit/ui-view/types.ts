@@ -6,7 +6,6 @@ import { APP_COLORS } from 'app/theme';
 import { Spacings } from 'tools/hooks/use-spacings/types';
 
 export type UIViewProps = {
-  bg?: keyof typeof APP_COLORS;
   flex?: ViewStyle['flex'];
   flexS?: ViewStyle['flexShrink'];
   ai?: ViewStyle['alignItems'];
@@ -14,7 +13,6 @@ export type UIViewProps = {
   as?: ViewStyle['alignSelf'];
   direction?: ViewStyle['flexDirection'];
   gap?: ViewStyle['gap'];
-  onPress?: PressableProps['onPress'] | MotiPressableProps['onPress'];
   wrap?: ViewStyle['flexWrap'];
   w?: ViewStyle['width'];
   h?: ViewStyle['height'];
@@ -27,9 +25,12 @@ export type UIViewProps = {
   radiusTL?: ViewStyle['borderTopLeftRadius'];
   radiusBR?: ViewStyle['borderBottomRightRadius'];
   radiusLR?: ViewStyle['borderBottomLeftRadius'];
+  //
+  bg?: keyof typeof APP_COLORS;
+  onPress?: PressableProps['onPress'] | MotiPressableProps['onPress'];
   animated?: boolean;
-} & ViewProps &
-  Spacings &
+} & Spacings &
+  ViewProps &
   PressableProps &
   MotiProps &
   MotiPressableProps;

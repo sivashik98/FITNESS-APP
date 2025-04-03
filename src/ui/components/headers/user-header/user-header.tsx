@@ -1,29 +1,20 @@
 import React, { FC } from 'react';
-import { TouchableOpacity } from 'react-native-ui-lib';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
-import { Image } from 'expo-image';
 
-import { UIText, UIView } from 'ui/components';
+import { UIView } from 'ui/components';
+import { UserAvatar, UserInfo } from 'ui/components/headers/user-header/components';
 
-import { TextTypes } from 'ui/components/ui-kit/ui-text/types';
 import { UserHeaderProps } from 'ui/components/headers/user-header/types';
-import { NavigationService } from 'tools/services';
+import { useUserInfoAdapter } from 'bl-modules/user/user-info';
 
 export const UserHeader: FC<UserHeaderProps> = ({ ...props }) => {
   const { styles } = useStyles(stylesheet);
+  const { variables } = useUserInfoAdapter();
 
   return (
     <UIView {...props} style={styles.container}>
-      <UIView gap-6>
-        <UIText font={'h2'}>Привет!</UIText>
-        <UIText font={'p3R'} type={TextTypes.secondary}>
-          +7 909 375-37-44
-        </UIText>
-      </UIView>
-
-      <TouchableOpacity onPress={() => NavigationService.navigate('BottomTabsNavigation', { screen: 'ProfileScreen' })}>
-        <Image source={require('png/circle-logo.png')} style={styles.logo} />
-      </TouchableOpacity>
+      <UserInfo name={variables.name} username={variables.username} />
+      <UserAvatar />
     </UIView>
   );
 };
@@ -43,9 +34,5 @@ const stylesheet = createStyleSheet((theme, rt) => ({
     shadowRadius: 5,
     shadowColor: theme.colors.userHeader.shadow,
     elevation: 5,
-  },
-  logo: {
-    width: 60,
-    height: 60,
   },
 }));

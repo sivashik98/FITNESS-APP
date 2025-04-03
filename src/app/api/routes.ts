@@ -1,12 +1,18 @@
 export const API_ROUTES = {
   auth: {
-    emailCode: 'auth/email-code',
-    smsCode: 'auth/sms-code',
     emailLogin: 'auth/email-login',
     smsLogin: 'auth/sms-login',
-    //
-    refreshToken: 'auth/refresh-token',
+    emailCode: 'auth/email-code',
+    smsCode: 'auth/sms-code',
     logout: 'auth/logout',
-    register: 'register',
+    refreshToken: 'auth/refresh-token',
+  },
+  user: {
+    register: 'user/register',
+    me: 'user/me',
+    update: 'user/update',
+    updateEmail: 'user/updateEmail',
+    updatePhone: 'user/updatePhone',
+    goal: 'user/goal',
   },
 };

@@ -17,4 +17,12 @@ export const SHADOW_CONFIG: ShadowConfigType = {
     distance: 4,
     offset: [0, 2],
   },
+  smallPrimary: {
+    distance: 0,
+    offset: [0, 0],
+  },
+  smallSecondary: {
+    distance: 6,
+    offset: [0, 0],
+  },
 };

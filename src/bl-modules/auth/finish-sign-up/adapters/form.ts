@@ -10,7 +10,7 @@ export type FullNameFormFields = {
 };
 
 export type BirthDateFormFields = {
-  birthDate: string;
+  birthday: Date | null;
 };
 
 export const useFinishSignUpForm = () => {
@@ -24,7 +24,7 @@ export const useFinishSignUpForm = () => {
     resolver: BIRTH_DATE_VALIDATION,
     mode: 'onSubmit',
     reValidateMode: 'onChange',
-    defaultValues: { birthDate: '' },
+    defaultValues: { birthday: null },
   });
 
   return { fullName: fullNameController, birthDate: birthDateController };

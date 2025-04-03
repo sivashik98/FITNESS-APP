@@ -23,6 +23,7 @@ export const APP_COLORS = {
   morningIris: '#9F4DF1',
   darkIris: '#6E11CC',
   darkestIris: '#2D1D48',
+  blue: '#007AFF',
 } as const;
 
 export const APP_GRADIENTS = {

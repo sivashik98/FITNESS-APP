@@ -5,11 +5,11 @@ import { FormField, UISegmentedControl, UIText, UIView } from 'ui/components';
 import { SEGMENTS } from 'bl-modules/auth/hybrid-auth/adapters/constants';
 import { AuthFormProps } from 'ui/screens/auth/hybrid-auth/components/auth-form/types';
 
-export const AuthForm: FC<AuthFormProps> = ({ toggleTab, currentTab, form }) => {
+export const AuthForm: FC<AuthFormProps> = ({ toggleTab, currentTab, form, shouldHideSegmentControl, title }) => {
   return (
-    <UIView gap={30}>
-      <UIText font={'h1'}>Укажите email или номер телефона</UIText>
-      <UISegmentedControl values={SEGMENTS} selectedIndex={currentTab.index} onChange={toggleTab} />
+    <UIView gap={30} paddingT={20}>
+      <UIText font={'h1'}>{title}</UIText>
+      {shouldHideSegmentControl ? undefined : <UISegmentedControl values={SEGMENTS} selectedIndex={currentTab.index} onChange={toggleTab} />}
       {currentTab.type === 'email' ? (
         <FormField
           key={'email'}

@@ -18,7 +18,8 @@ export const CodeConfirmScreen = ({}) => {
           duration={variables.duration}
           shouldShowTimer={variables.shouldShowTimer}
           onSubmit={handlers.submitHandler}
-          authData={variables.authMethod}
+          authMethodTitle={variables.authMethodTitle}
+          authDataTitle={variables.authDataTitle}
           form={form}
         />
       }

@@ -1,7 +1,7 @@
 import { ShadowProps } from 'react-native-shadow-2';
 import { FC } from 'react';
 import { MotiPressableProps } from 'moti/interactions';
-import { PressableProps } from 'react-native';
+import { PressableProps, ViewStyle } from 'react-native';
 
 import { SvgProps } from 'svg/types';
 import { Spacings } from 'tools/hooks/use-spacings/types';
@@ -13,6 +13,8 @@ export type UIButtonProps = {
   title: string;
   LeftIcon?: FC<SvgProps>;
   onPress: PressableProps['onPress'] | MotiPressableProps['onPress'];
+  buttonStyles?: ViewStyle;
+  shouldDisableShadow?: boolean;
 } & Spacings;
 
 export enum ButtonTypes {
@@ -20,6 +22,8 @@ export enum ButtonTypes {
   outlined = 'outlined',
   texted = 'texted',
   elevated = 'elevated',
+  smallPrimary = 'smallPrimary',
+  smallSecondary = 'smallSecondary',
 }
 
 export type ShadowConfigType = { [key in keyof typeof ButtonTypes]: { distance: ShadowProps['distance']; offset: ShadowProps['offset'] } };

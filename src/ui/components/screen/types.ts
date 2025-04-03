@@ -4,6 +4,8 @@ import { ScrollHandlerProcessed } from 'react-native-reanimated';
 import { DefaultHeaderProps } from 'ui/components/headers/default-header/types';
 
 export type ScreenProps = {
+  skeleton?: ReactElement;
+  shouldShowSkeleton?: boolean;
   content: ReactElement;
   footer?: ReactElement;
   isLoading?: boolean;

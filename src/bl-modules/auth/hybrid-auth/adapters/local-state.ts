@@ -1,12 +1,14 @@
 import { useState } from 'react';
 
-type AuthTabs = {
+import { useHybridAuthNavigation } from 'bl-modules/auth/hybrid-auth/adapters/navigation';
+
+export type AuthTabs = {
   type: 'phone' | 'email';
   index: 0 | 1;
 };
 
-export const useHybridAuthLocalState = () => {
-  const [tab, setTab] = useState<AuthTabs>({ type: 'email', index: 0 });
+export const useHybridAuthLocalState = (navigation: ReturnType<typeof useHybridAuthNavigation>) => {
+  const [tab, setTab] = useState<AuthTabs>(navigation.tab || { type: 'email', index: 0 });
 
   return { tab, setTab };
 };

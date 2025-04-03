@@ -20,7 +20,7 @@ export const NavigationService = {
     routes: {
       name: keyof RootNavigationParams;
       params?: StackScreenProps<RootNavigationParams>['route']['params'];
-    }[]
+    }[],
   ) {
     if (navigationRef.isReady()) {
       navigationRef.reset({ index: 0, routes: routes });
@@ -29,6 +29,11 @@ export const NavigationService = {
   replace(name: keyof RootNavigationParams, params?: StackScreenProps<RootNavigationParams>['route']['params']) {
     if (navigationRef.isReady()) {
       navigationRef.dispatch(StackActions.replace(name, params));
+    }
+  },
+  push(name: keyof RootNavigationParams, params?: StackScreenProps<RootNavigationParams>['route']['params']) {
+    if (navigationRef.isReady()) {
+      navigationRef.dispatch(StackActions.push(name, params));
     }
   },
   goBack() {
@@ -50,6 +55,11 @@ export const NavigationService = {
       return navigationRef.current?.canGoBack();
     } else {
       return false;
+    }
+  },
+  popTo: (name: keyof RootNavigationParams, params?: StackScreenProps<RootNavigationParams>['route']['params'], merge?: boolean) => {
+    if (navigationRef.isReady()) {
+      navigationRef.dispatch(StackActions.popTo(name, params, merge));
     }
   },
 };

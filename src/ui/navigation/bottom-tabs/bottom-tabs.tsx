@@ -10,6 +10,7 @@ import { SvgContainer } from 'ui/components';
 import { FeedIconSvg } from 'svg/navigation/feed-icon';
 import { ProfileIconSvg } from 'svg/navigation/profile-icon';
 import { APP_COLORS } from 'app/theme';
+import { Platform } from 'react-native';
 
 const Tabs = createBottomTabNavigator<BottomTabsNavigationParams>();
 
@@ -33,6 +34,8 @@ export const BottomTabsNavigation: FC<{}> = ({}) => {
       screenOptions={{
         headerShown: false,
         tabBarStyle: styles.tabBarStyle,
+        tabBarItemStyle: styles.tabBarItemStyle,
+        tabBarIconStyle: styles.tabBarIconStyle,
         tabBarLabelStyle: styles.tabBarLabelStyle,
         tabBarLabel: '',
       }}
@@ -63,6 +66,14 @@ const stylesheet = createStyleSheet((theme) => ({
     shadowRadius: 5,
     shadowColor: theme.colors.userHeader.shadow,
     elevation: 5,
+    height: Platform.select({ ios: 85, android: 65 }),
+  },
+  tabBarItemStyle: {
+    marginTop: 10,
+    marginBottom: Platform.select({ ios: 0, android: 10 }),
+  },
+  tabBarIconStyle: {
+    flexShrink: 1,
   },
   tabBarLabelStyle: {
     width: 0,

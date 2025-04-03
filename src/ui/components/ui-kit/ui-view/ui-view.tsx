@@ -62,27 +62,27 @@ export const UIView = forwardRef<any, UIViewProps>(({ children, onPress, animate
       margin,
       padding,
       props.style,
-    ]
+    ],
   );
 
   if (onPress) {
     return animated ? (
-      <MotiPressable ref={ref as any} onPress={onPress} {...props} style={styles}>
+      <MotiPressable ref={ref as any} onPress={onPress} style={styles} {...props}>
         {children}
       </MotiPressable>
     ) : (
-      <Pressable ref={ref as any} onPress={onPress} {...props} style={styles}>
+      <Pressable ref={ref as any} onPress={onPress} style={styles} {...props}>
         {children}
       </Pressable>
     );
   }
 
   return animated ? (
-    <MotiView ref={ref as any} {...props} style={styles}>
+    <MotiView ref={ref as any} style={styles} {...props}>
       {children}
     </MotiView>
   ) : (
-    <View ref={ref as any} {...props} style={styles}>
+    <View ref={ref as any} style={styles} {...props}>
       {children}
     </View>
   );

@@ -7,6 +7,8 @@ import { UIText, UIView } from 'ui/components/ui-kit';
 import { UICodeFieldProps } from 'ui/components/ui-kit/ui-code-field/types';
 import { RenderCellOptions } from 'react-native-confirmation-code-field/esm/CodeField';
 import { TextTypes } from 'ui/components/ui-kit/ui-text/types';
+import { SvgContainer } from 'ui/components';
+import { QuestionMarkIconSvg } from 'svg/icons/question-mark-icon';
 
 const renderCell =
   (onLayout: ReturnType<typeof useClearByFocusCell>[1], isError: boolean) =>
@@ -48,9 +50,12 @@ export const UICodeField = forwardRef<any, UICodeFieldProps>(({ value, onChangeT
         </UIText>
       ) : undefined}
       {bottomHint ? (
-        <UIText font={'p2R'} type={TextTypes.secondary}>
-          {bottomHint}
-        </UIText>
+        <UIView direction={'row'} gap={10} marginT={10}>
+          <SvgContainer Icon={QuestionMarkIconSvg} style={{ marginTop: 5 }} />
+          <UIText font={'p2R'} type={TextTypes.secondary}>
+            {bottomHint}
+          </UIText>
+        </UIView>
       ) : undefined}
     </>
   );

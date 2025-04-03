@@ -9,13 +9,15 @@ import { CloseCircleIconSvg } from 'svg/icons/close-circle-icon';
 import { UITextFieldProps } from 'ui/components/ui-kit/ui-text-field/types';
 import { APP_FONTS } from 'app/theme/fonts';
 import { TextTypes } from 'ui/components/ui-kit/ui-text/types';
+import { QuestionMarkIconSvg } from 'svg/icons/question-mark-icon';
 
 export const UITextField = forwardRef<typeof TextInputMask, UITextFieldProps>(
-  ({ leadingAccessory, bottomHint, errorMessage, value = '', onClear, ...props }, ref: any) => {
+  ({ leadingAccessory, label, bottomHint, errorMessage, value = '', onClear, ...props }, ref: any) => {
     const { theme, styles } = useStyles(stylesheet);
 
     return (
       <UIView flexS={1}>
+        {label ? <UIView marginR={20}>{label}</UIView> : null}
         <UIView style={[styles.container, errorMessage ? styles['container-error'] : undefined]}>
           {leadingAccessory ? <UIView marginR={20}>{leadingAccessory}</UIView> : null}
           <TextInputMask
@@ -44,14 +46,17 @@ export const UITextField = forwardRef<typeof TextInputMask, UITextFieldProps>(
             </UIText>
           ) : undefined}
           {bottomHint ? (
-            <UIText font={'p2R'} type={TextTypes.secondary}>
-              {bottomHint}
-            </UIText>
+            <UIView direction={'row'} gap={10}>
+              <SvgContainer Icon={QuestionMarkIconSvg} style={{ marginTop: 5 }} />
+              <UIText font={'p2R'} type={TextTypes.secondary}>
+                {bottomHint}
+              </UIText>
+            </UIView>
           ) : undefined}
         </UIView>
       </UIView>
     );
-  }
+  },
 );
 
 const stylesheet = createStyleSheet((theme) => ({

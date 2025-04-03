@@ -8,7 +8,8 @@ export const useFinishSignUpLocalState = () => {
   const [progress, setProgress] = useState(100 / STEPS.length);
   const [step, setStep] = useState<number>(0);
   const [activeGender, setActiveGender] = useState<GenderTypes>(GenderTypes.NOT_SPECIFIED);
+  const [birthDate, setBirthDate] = useState('');
   const carouselRef = useRef<ICarouselInstance>(null);
 
-  return { carouselRef, activeGender, setProgress, setStep, setActiveGender, progress, step };
+  return { carouselRef, activeGender, setProgress, setStep, setActiveGender, progress, step, birthDate, setBirthDate };
 };

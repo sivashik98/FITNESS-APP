@@ -1,6 +1,7 @@
 import { UIView } from 'ui/components/ui-kit';
 import { Screen, MenuItemsList } from 'ui/components';
 import { ScreenHeaderTypes } from 'ui/components/screen/types';
+import { NavigationService } from 'tools/services';
 
 export const DocumentsScreen = ({}) => {
   return (
@@ -11,8 +12,8 @@ export const DocumentsScreen = ({}) => {
         <UIView marginT-20>
           <MenuItemsList
             items={[
-              { title: 'Политика конфиденциальности', onPress: () => alert('Политика конфиденциальности') },
-              { title: 'Пользовательское соглашение', onPress: () => alert('Пользовательское соглашение') },
+              { title: 'Политика конфиденциальности', onPress: () => NavigationService.navigate('PrivacyPolicyScreen') },
+              { title: 'Пользовательское соглашение', onPress: () => NavigationService.navigate('PrivacyPolicyScreen') },
             ]}
           />
         </UIView>

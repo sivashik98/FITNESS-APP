@@ -6,5 +6,4 @@ export type FormCodeFieldProps = {
   control: Control<any>;
   name: string;
   onFinishFillingCode: () => void;
-  cellCount: UICodeFieldProps['cellCount'];
 } & UICodeFieldProps;

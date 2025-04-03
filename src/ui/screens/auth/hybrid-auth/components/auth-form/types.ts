@@ -6,4 +6,6 @@ export type AuthFormProps = {
   toggleTab: ReturnType<typeof useHybridAuthHandlers>['toggleTab'];
   currentTab: ReturnType<typeof useHybridAuthVariables>['currentTab'];
   form: ReturnType<typeof useHybridAuthForm>;
+  shouldHideSegmentControl: ReturnType<typeof useHybridAuthVariables>['shouldHideSegmentControl'];
+  title: ReturnType<typeof useHybridAuthVariables>['title'];
 };

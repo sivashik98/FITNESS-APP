@@ -2,4 +2,6 @@ import { useFinishSignUpVariables } from 'bl-modules/auth/finish-sign-up/adapter
 
 export type HeaderProps = {
   progress: ReturnType<typeof useFinishSignUpVariables>['progress'];
+  onPress: () => void;
+  shouldShowBackButton?: boolean;
 };

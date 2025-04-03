@@ -6,6 +6,7 @@ export type CodeConfirmFormProps = {
   form: ReturnType<typeof useCodeConfirmForm>;
   shouldShowTimer: ReturnType<typeof useCodeConfirmVariables>['shouldShowTimer'];
   duration: ReturnType<typeof useCodeConfirmVariables>['duration'];
-  authData: ReturnType<typeof useCodeConfirmVariables>['authData'];
+  authMethodTitle: ReturnType<typeof useCodeConfirmVariables>['authMethodTitle'];
+  authDataTitle: ReturnType<typeof useCodeConfirmVariables>['authDataTitle'];
   onSubmit: ReturnType<typeof useCodeConfirmHandlers>['submitHandler'];
 };

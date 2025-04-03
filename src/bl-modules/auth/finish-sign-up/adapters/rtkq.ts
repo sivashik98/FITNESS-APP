@@ -1,3 +1,7 @@
+import { UserService } from 'app/api/endpoints';
+
 export const useFinishSignUpRtkq = () => {
-  return {};
+  const [register, { isLoading, data }] = UserService.useRegisterMutation();
+
+  return { register, isLoading, data };
 };

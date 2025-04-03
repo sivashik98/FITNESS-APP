@@ -1,14 +1,21 @@
 import { FC } from 'react';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
-import SegmentedControl from '@react-native-segmented-control/segmented-control';
+import SegmentedControl, { NativeSegmentedControlIOSChangeEvent } from '@react-native-segmented-control/segmented-control';
+import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics';
+import { NativeSyntheticEvent } from 'react-native';
 
 import { APP_FONTS } from 'app/theme/fonts';
 import { UISegmentedControlProps } from 'ui/components/ui-kit/ui-segmented-control/types';
 import { useSpacings } from 'tools/hooks/use-spacings/use-spacings';
 
-export const UISegmentedControl: FC<UISegmentedControlProps> = ({ ...props }) => {
+export const UISegmentedControl: FC<UISegmentedControlProps> = ({ onChange, ...props }) => {
   const { styles, theme } = useStyles(stylesheet);
   const { margin, padding } = useSpacings(props);
+
+  const onValueChangeWithImpact = async (event: NativeSyntheticEvent<NativeSegmentedControlIOSChangeEvent>) => {
+    onChange?.(event);
+    await impactAsync(ImpactFeedbackStyle.Light);
+  };
 
   return (
     <SegmentedControl
@@ -16,6 +23,7 @@ export const UISegmentedControl: FC<UISegmentedControlProps> = ({ ...props }) =>
       tabStyle={styles.tabStyle}
       style={[styles.container, margin, padding]}
       fontStyle={styles.fontStyle}
+      onChange={onValueChangeWithImpact}
       {...props}
     />
   );

@@ -5,12 +5,12 @@ import { FormCodeField, UIText, UIView } from 'ui/components';
 import { TextTypes } from 'ui/components/ui-kit/ui-text/types';
 import { CodeConfirmFormProps } from 'ui/screens/auth/code-confirm/components/code-confirm-form/types';
 
-export const CodeConfirmForm: FC<CodeConfirmFormProps> = ({ form, shouldShowTimer, authData, onSubmit, duration }) => {
+export const CodeConfirmForm: FC<CodeConfirmFormProps> = ({ form, shouldShowTimer, authMethodTitle, authDataTitle, onSubmit, duration }) => {
   return (
     <>
-      <UIText font={'h2'}>Код отправили на:</UIText>
+      <UIText font={'h2'}>{authMethodTitle}</UIText>
       <UIText font={'h2'} type={TextTypes.secondary}>
-        {authData}
+        {authDataTitle}
       </UIText>
       <UIView marginT={70} gap={10}>
         <UIText font={'p1B'}>Теперь введите код</UIText>

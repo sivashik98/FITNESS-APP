@@ -1,8 +1,7 @@
 export interface Response<P = {}> {
   payload: P;
   is_error: boolean;
-  message: null | string;
-  errors: string[];
+  errors: null | string[];
+  statusMessage: string;
   status_code: number;
-  status: number;
 }

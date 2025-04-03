@@ -1,4 +1,4 @@
-import { string, bool } from 'yup';
+import { string, bool, date, number } from 'yup';
 
 const CASES = {
   required: 'Поле обязательное для заполнения',
@@ -11,11 +11,8 @@ const CASES = {
 
 // Сущности которые можно валидировать в приложении (могут пополниться)
 export const SHAPES = {
-  phone: string()
-    .required(CASES.required)
-    .min(10, CASES.min(10))
-    .max(10, CASES.max(10))
-    .matches(/^[0-9]+$/, CASES.onlyNumbersAllowed),
+  phone: string().required(CASES.required).min(15, CASES.min(10)).max(15, CASES.max(10)),
+  // .matches(/^[0-9]+$/, CASES.onlyNumbersAllowed),
   email: string().required(CASES.required).email(CASES.email).min(5, CASES.min(5)).max(40, CASES.max(40)),
   code: string()
     .required(CASES.required)
@@ -26,5 +23,13 @@ export const SHAPES = {
   surname: string().required(CASES.required).min(4, CASES.min(4)).max(20, CASES.max(20)),
   patronymic: string().required(CASES.required).min(4, CASES.min(4)).max(20, CASES.max(20)),
   checkbox: bool().oneOf([true], CASES.rulesAcceptRequired).required(CASES.required),
-  birthDate: string().required(CASES.required),
+  // birthDate: date().required(CASES.required),
+  birthday: date().required(CASES.required), // Требуем обязательное заполнение
+  // .typeError(CASES.required),
+  // .nullable() // Разрешаем null
+  goalDate: date().required(CASES.required), // Требуем обязательное заполнение
+  weight: number()
+    .required(CASES.required)
+    .min(35, 'Минимальный вес должен быть больше либо равен 35')
+    .max(250, 'Максимальный вес должен быть больше либо равен 250'),
 };

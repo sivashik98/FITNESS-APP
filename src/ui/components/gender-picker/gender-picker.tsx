@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Image } from 'expo-image';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
+import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics';
 
 import { UIText, UIView } from 'ui/components';
 
@@ -18,22 +19,22 @@ export const GenderPicker: FC<GenderPickerProps> = ({ active, onPress, ...props 
   const { styles } = useStyles(stylesheet);
   const { margin, padding } = useSpacings(props);
 
+  const onPressWithImpact = (type: GenderTypes) => async () => {
+    onPress?.(type);
+    await impactAsync(ImpactFeedbackStyle.Light);
+  };
+
   return (
-    <UIView direction={'row'} jc={'space-between'} style={[margin, padding]}>
+    <UIView style={[margin, padding, styles.wrap]}>
       {GENDERS.map((gender) => (
-        <UIView
-          key={gender.name}
-          animated
-          from={{ opacity: 0.3, scale: 0.3 }}
-          animate={{ opacity: 1, scale: 1 }}
-          onPress={() => onPress(gender.type)}
-          style={styles.container}
-        >
-          <UIView style={[styles.card, active === gender.type && styles['card-active']]}>
-            <UIText font={'p2B'} numberOfLines={1} type={active === gender.type ? TextTypes.accent : TextTypes.primary}>
-              {gender.name}
-            </UIText>
-            <Image source={gender.source} style={styles.image} />
+        <UIView key={gender.name} style={styles.container}>
+          <UIView animated from={{ opacity: 0.3, scale: 0.3 }} animate={{ opacity: 1, scale: 1 }} onPress={onPressWithImpact(gender.type)}>
+            <UIView style={[styles.card, active === gender.type && styles['card-active']]}>
+              <UIText font={'p3B'} numberOfLines={1} type={active === gender.type ? TextTypes.accent : TextTypes.primary}>
+                {gender.name}
+              </UIText>
+              <Image source={gender.source} style={styles.image} />
+            </UIView>
           </UIView>
         </UIView>
       ))}
@@ -42,8 +43,12 @@ export const GenderPicker: FC<GenderPickerProps> = ({ active, onPress, ...props 
 };
 
 const stylesheet = createStyleSheet((theme) => ({
+  wrap: {
+    flexDirection: 'row',
+    gap: 10,
+  },
   container: {
-    flexShrink: 1,
+    flex: 1,
   },
   card: {
     padding: 10,

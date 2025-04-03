@@ -1,16 +1,15 @@
-import { useState } from 'react';
-import { Image } from 'expo-image';
-
-import { UIText, UIView, UISwitch } from 'ui/components/ui-kit';
+import { UIView, UISwitch } from 'ui/components/ui-kit';
 import { Screen, MenuItemsList } from 'ui/components';
 
-import { TextTypes } from 'ui/components/ui-kit/ui-text/types';
 import { NavigationService } from 'tools/services';
 import { ScreenHeaderTypes } from 'ui/components/screen/types';
+import { UserInfo } from 'ui/screens/profile/profile/components';
+import { useUserInfoAdapter } from 'bl-modules/user/user-info';
+import { useAppStateAdapter } from 'bl-modules/app-state/adapters/adapter';
 
 export const ProfileScreen = ({}) => {
-  const [notificationSwitch, setNotificationSwitch] = useState<boolean>(false);
-  const [themeSwitch, setThemeSwitch] = useState<boolean>(false);
+  const { variables } = useUserInfoAdapter();
+  const { handlers: appStateHandlers, variables: appStateVariables } = useAppStateAdapter();
 
   return (
     <Screen
@@ -19,22 +18,18 @@ export const ProfileScreen = ({}) => {
       scroll
       content={
         <UIView gap={20}>
-          <UIView ai={'center'}>
-            <Image source={require('png/circle-logo.png')} style={{ width: 100, height: 100 }} />
-          </UIView>
-          <UIView gap={6}>
-            <UIText font={'h2'} center>
-              Алинмова Мила Николаевна
-            </UIText>
-            <UIText font={'p1M'} type={TextTypes.accent} center>
-              +7 909 375-37-44
-            </UIText>
-          </UIView>
+          <UserInfo fullName={variables.fullName} username={variables.username} />
           <MenuItemsList items={[{ title: 'Аккаунт', onPress: () => NavigationService.navigate('AccountScreen') }]} />
           <MenuItemsList
             items={[
-              { title: 'Уведомления', RightComponent: () => <UISwitch value={notificationSwitch} onValueChange={setNotificationSwitch} /> },
-              { title: 'Сменить тему', RightComponent: () => <UISwitch value={themeSwitch} onValueChange={setThemeSwitch} /> },
+              {
+                title: 'Темная тема',
+                RightComponent: <UISwitch value={appStateVariables.isDarkTheme} onValueChange={appStateHandlers.toggleTheme} />,
+              },
+              {
+                title: 'Системная тема',
+                RightComponent: <UISwitch value={appStateVariables.isSystemTheme} onValueChange={appStateHandlers.toggleSystemTheme} />,
+              },
             ]}
           />
           <MenuItemsList

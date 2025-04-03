@@ -7,8 +7,8 @@ import { RootNavigation } from 'ui/navigation/root/root';
 import { ToastSuccess, ToastError } from 'ui/components';
 
 import { navigationRef } from 'tools/services/navigation/navigation';
-
-// import { navigationRef } from 'services/Navigation'
+import { useAppLaunchAdapter } from 'bl-modules/app-launch';
+import { useAppStateAdapter } from 'bl-modules/app-state';
 
 const toastConfig = {
   success: ToastSuccess,
@@ -16,8 +16,8 @@ const toastConfig = {
 };
 
 export const Navigation: FC<{}> = ({}) => {
-  // const { isAuthorized } = useAppSelector(state => state.authorization)
-  const isAuthorized = false;
+  const { variables: appLaunchVariables } = useAppLaunchAdapter();
+  const { variables: appStateVariables } = useAppStateAdapter();
 
   return (
     <NavigationContainer
@@ -25,14 +25,9 @@ export const Navigation: FC<{}> = ({}) => {
       fallback={null}
       // onReady={onReady}
     >
-      <StatusBar translucent />
-      <RootNavigation isAuthorized={isAuthorized} />
-      {/*{isAuthorized && <MenuModal />}*/}
-      {/*<ModalComponent />*/}
-      {/*<LanguagesModal />*/}
-      {/*<GlobalLoading />*/}
-      {/*<PopUp />*/}
-      <Toast config={toastConfig} />
+      <StatusBar translucent animated style={appStateVariables.isSystemTheme ? 'auto' : appStateVariables.isDarkTheme ? 'light' : 'dark'} />
+      <RootNavigation initialScreen={appLaunchVariables.initialScreen} />
+      <Toast config={toastConfig} visibilityTime={1650} />
     </NavigationContainer>
   );
 };

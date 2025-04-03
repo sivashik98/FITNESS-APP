@@ -20,4 +20,5 @@ export enum TextTypes {
   secondary = 'secondary',
   error = 'error',
   accent = 'accent',
+  link = 'link',
 }
